@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Gallery — The Tint Guy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="photos/logo.JPG" alt="The Tint Guy" class="nav-logo-img" />
+      <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="gallery.html" class="active">Gallery</a></li>
+      <li><a href="shop.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <div class="nav-socials">
+        <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" title="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://wa.me/18159058424" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <a href="contact.html" class="btn-primary nav-book-btn">BOOK NOW</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <div class="page-hero">
+    <h1>FULL <span>GALLERY</span></h1>
+    <p>Window Tint · Sound Systems · Starlight Headliners · Lighting · Wraps · Mechanic Work</p>
+  </div>
+
+  <!-- GALLERY -->
+  <section class="shop">
+    <!-- Filters -->
+    <div class="shop-filters">
+      <button class="filter-btn active" onclick="filterGallery('all', this)">ALL</button>
+      <button class="filter-btn" onclick="filterGallery('tint', this)">TINT</button>
+      <button class="filter-btn" onclick="filterGallery('audio', this)">AUDIO</button>
+      <button class="filter-btn" onclick="filterGallery('lighting', this)">LIGHTING</button>
+      <button class="filter-btn" onclick="filterGallery('wrap', this)">WRAP</button>
+      <button class="filter-btn" onclick="filterGallery('mechanic', this)">MECHANIC</button>
+    </div>
+
+    <!-- Gallery grid -->
+    <div class="gallery-grid" id="galleryGrid"></div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-banner-bg"></div>
+    <div class="cta-banner-content">
+      <h2>READY TO<br><span>UPGRADE</span><br>YOUR RIDE?</h2>
+      <p>DM on Snapchat, Instagram, or TikTok — or send a request below</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">BOOK AN APPOINTMENT</a>
+        <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="btn-secondary"><i class="fab fa-snapchat" style="margin-right:8px;"></i>SNAPCHAT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <img src="photos/logo.JPG" alt="The Tint Guy" style="width:60px; height:60px; object-fit:contain; margin-bottom:12px;" />
+      <span class="footer-logo">
+        <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
+      </span>
+      <p>The Tint Guy Corporation</p>
+      <div class="social-links" style="justify-content:center; margin: 14px 0;">
+        <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/thetintguy_27" target="_blank" class="social-btn telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="social-btn snapchat" title="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://wa.me/18159058424" target="_blank" class="social-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p style="margin-top:6px;"><a href="tel:8159058424" style="color:var(--mid); text-decoration:none;">815-905-8424</a></p>
+      <p class="footer-copy">© 2026 The Tint Guy Corporation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    const galleryItems = [
+      { id: 1, image: 'photos/0B00A6D9-0515-4F2B-AD92-BCE018D1E51C.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 2, image: 'photos/soundsystem.jpg', category: 'audio', tag: 'SOUND SYSTEM' },
+      { id: 3, image: 'photos/0B086D7A-6ED6-4936-BC9C-5C74D03098AA.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 4, image: 'photos/interiorlighting.jpeg', category: 'lighting', tag: 'INTERIOR LIGHTING' },
+      { id: 5, image: 'photos/0FCB6A20-0DD2-47A6-80B2-6A8CEC1FD9CA.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 6, image: 'photos/C741D7A1-A32E-483E-9593-155904EAD84D.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 7, image: 'photos/A8178A2B-8B46-4034-9326-597C5513E522.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 8, image: 'photos/1EBF1B9A-931E-4580-9437-861467F1E5EE_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 9, image: 'photos/38D35423-4D56-4F00-8AB6-3064D7BF3ED0_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 10, image: 'photos/3A6DAF3F-E5A7-474B-9E6A-48D325C720F0_4_5005_c.jpeg', category: 'lighting', tag: 'STARLIGHT HEADLINER' },
+      { id: 11, image: 'photos/3DABC183-2594-4A69-981A-21B0A86948F9_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 12, image: 'photos/7B733D24-D828-4470-8AED-006FE2FE19F1_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 13, image: 'photos/80A67181-39B9-470D-82A5-DA4C1719675F_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 14, image: 'photos/93BA89F2-F8ED-468E-8BB8-F4673A78BDE5_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 15, image: 'photos/A709665E-0228-4772-B903-11F40C2F0095_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 16, image: 'photos/AD61C8DB-DC69-4EE3-AFB4-40A5DA59823B_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 17, image: 'photos/BC3D2EB3-2DD0-4792-B615-13F711AF5C80_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 18, image: 'photos/BFB3E46B-861E-4ED6-9E2B-DDB2EFED27F8_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 19, image: 'photos/C14AA1F8-8BEE-4D29-987A-A021A8B252F3_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 20, image: 'photos/C5F97970-04FC-4B0E-A4C6-A7DC117705C2_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 21, image: 'photos/C64D770A-0549-4804-8317-FD5F47A275D7_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 22, image: 'photos/CB4E7C5E-71DF-46BC-967D-5641D341CDD5_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 23, image: 'photos/CC8381CD-7A58-4862-8A92-7D9E83D0C063_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 24, image: 'photos/D71EE0CA-E378-4786-8470-E4F43232BBA2_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 25, image: 'photos/D85E5017-3E9C-4B12-A8D6-ADA158828C74_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 26, image: 'photos/F3F812EF-0B3D-411C-B7C9-02721CBCA749_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' },
+      { id: 27, image: 'photos/F7EE0497-F024-4641-818A-7283D64B0C3E_4_5005_c.jpeg', category: 'tint', tag: 'WINDOW TINT' }
+    ];
+
+    let currentFilter = 'all';
+
+    function getFiltered() {
+      return galleryItems.filter(item => {
+        return currentFilter === 'all' || item.category === currentFilter;
+      });
+    }
+
+    function renderGallery() {
+      const grid = document.getElementById('galleryGrid');
+      const filtered = getFiltered();
+
+      if (filtered.length === 0) {
+        grid.innerHTML = `<div class="no-results">NO IMAGES FOUND</div>`;
+        return;
+      }
+
+      grid.innerHTML = filtered.map(item => `
+        <div class="gallery-item">
+          <div class="gallery-img" style="background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>
+          <div class="gallery-overlay"><span class="gallery-tag">${item.tag}</span></div>
+        </div>
+      `).join('');
+    }
+
+    function filterGallery(category, btn) {
+      currentFilter = category;
+      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      renderGallery();
+    }
+
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    window.addEventListener('scroll', () => {
+      const nav = document.querySelector('.navbar');
+      nav.classList.toggle('scrolled', window.scrollY > 50);
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      renderGallery();
+    });
+  </script>
+
+</body>
+</html>

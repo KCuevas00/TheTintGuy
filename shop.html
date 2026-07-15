@@ -10,30 +10,15 @@
 </head>
 <body>
 
-  <!-- ===================== SERVICE MODAL ===================== -->
-  <div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-    <div class="modal" id="modal">
-      <button class="modal-close" onclick="closeModal()"><i class="fas fa-times"></i></button>
-      <div class="modal-img" id="modalImg"></div>
-      <div class="modal-body">
-        <div id="modalBadge"></div>
-        <h2 class="modal-name" id="modalName"></h2>
-        <p class="modal-desc" id="modalDesc"></p>
-        <a href="contact.html" class="btn-primary full" id="modalBookBtn">BOOK THIS SERVICE</a>
-        <p style="text-align:center; margin-top:12px; font-family:var(--font-cond); font-size:0.8rem; letter-spacing:1px; color:var(--gray);">Or reach out directly on Snapchat / Instagram / TikTok</p>
-      </div>
-    </div>
-  </div>
-
   <!-- ===================== NAVBAR ===================== -->
   <nav class="navbar">
     <a href="index.html" class="nav-logo">
-      <img src="logo.jpg" alt="The Tint Guy" class="nav-logo-img" />
+      <img src="photos/logo.JPG" alt="The Tint Guy" class="nav-logo-img" />
       <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
-      <li><a href="index.html#gallery">Gallery</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
       <li><a href="shop.html" class="active">Services</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
@@ -54,39 +39,48 @@
 
   <!-- ===================== PAGE HERO ===================== -->
   <div class="page-hero">
-    <h1>OUR <span>SERVICES</span></h1>
+    <h1>MY <span>SERVICES</span></h1>
     <p>Tint · Audio · Lighting · Wraps · Mechanic — Book an appointment today</p>
   </div>
 
   <!-- ===================== SERVICES ===================== -->
-  <section class="shop">
-
-    <!-- Search -->
-    <div class="shop-search-wrap">
-      <input
-        type="text"
-        class="shop-search"
-        id="shopSearch"
-        placeholder="SEARCH SERVICES..."
-        oninput="handleSearch(this.value)"
-        autocomplete="off"
-      />
-      <i class="fas fa-search shop-search-icon"></i>
+  <section class="services">
+    <div class="section-header">
+      <span class="section-tag">CAPABILITIES</span>
+      <h2>WHAT I DO</h2>
     </div>
-
-    <!-- Filters -->
-    <div class="shop-filters">
-      <button class="filter-btn active" onclick="filterProducts('all', this)">ALL</button>
-      <button class="filter-btn" onclick="filterProducts('tint', this)">TINT</button>
-      <button class="filter-btn" onclick="filterProducts('audio', this)">AUDIO</button>
-      <button class="filter-btn" onclick="filterProducts('interior', this)">INTERIOR</button>
-      <button class="filter-btn" onclick="filterProducts('wrap', this)">WRAP</button>
-      <button class="filter-btn" onclick="filterProducts('mechanic', this)">MECHANIC</button>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-car"></i></div>
+        <h3>WINDOW TINT</h3>
+        <p>Full vehicle or residential/commercial tint. UV protection, privacy, and a clean finish.</p>
+      </div>
+      <div class="service-card featured">
+        <div class="service-icon"><i class="fas fa-volume-up"></i></div>
+        <h3>SOUND SYSTEMS</h3>
+        <p>Custom audio builds — subs, amps, speakers, and wiring, tuned for real sound quality.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-star"></i></div>
+        <h3>STARLIGHT HEADLINERS</h3>
+        <p>Fiber-optic star ceiling installs for a completely custom interior look.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-lightbulb"></i></div>
+        <h3>AMBIENT & ROCK LIGHTS</h3>
+        <p>Interior ambient LED lighting and underbody rock lights, fully customizable.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-paint-roller"></i></div>
+        <h3>VEHICLE WRAPS</h3>
+        <p>Full and partial wraps, color changes. Your vehicle, your look.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-wrench"></i></div>
+        <h3>MECHANIC SERVICES</h3>
+        <p>General repair and maintenance work available alongside custom builds.</p>
+      </div>
     </div>
-
-    <!-- Services grid -->
-    <div class="products-grid" id="productsGrid"></div>
-
   </section>
 
   <!-- ===================== CTA BANNER ===================== -->
@@ -94,7 +88,7 @@
     <div class="cta-banner-bg"></div>
     <div class="cta-banner-content">
       <h2>DON'T SEE<br><span>WHAT YOU</span><br>NEED?</h2>
-      <p>Send a message and we'll figure it out — every build is custom</p>
+      <p>Send a message and I'll figure it out — every build is custom</p>
       <div class="cta-btns">
         <a href="contact.html" class="btn-primary">BOOK AN APPOINTMENT</a>
         <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="btn-secondary"><i class="fab fa-snapchat" style="margin-right:8px;"></i>SNAPCHAT</a>
@@ -105,6 +99,7 @@
   <!-- ===================== FOOTER ===================== -->
   <footer class="footer">
     <div class="footer-inner">
+      <img src="photos/logo.JPG" alt="The Tint Guy" style="width:60px; height:60px; object-fit:contain; margin-bottom:12px;" />
       <span class="footer-logo">
         <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
       </span>
@@ -123,215 +118,12 @@
 
 
   <script>
-    /* ==============================================
-       THE TINT GUY — shop.js (Services)
-       ============================================== */
-
-    const products = [
-      {
-        id: 1,
-        name: "Window Tint",
-        description: "Cut UV and heat, add privacy, and keep the factory look. Full vehicle or residential/commercial tint jobs available. Multiple shade options — bring in your ride or space and we'll walk you through it.",
-        shortDesc: "Full vehicle or residential/commercial tint",
-        category: "tint",
-        badge: "POPULAR",
-        badgeClass: "",
-        piClass: "pi-1",
-        label: "WINDOW\nTINT",
-        emoji: "🚙"
-      },
-      {
-        id: 2,
-        name: "Sound System Install",
-        description: "Custom audio builds from a simple sub upgrade to a full trunk build. Amps, subs, speakers, and clean wiring — tuned to sound right, not just loud.",
-        shortDesc: "Custom audio builds, subs & amps",
-        category: "audio",
-        badge: "BEST SELLER",
-        badgeClass: "",
-        piClass: "pi-2",
-        label: "SOUND\nSYSTEM",
-        emoji: "🔊"
-      },
-      {
-        id: 3,
-        name: "Starlight Headliner",
-        description: "Hundreds of fiber-optic points installed into your headliner for a custom night-sky effect. A standout interior upgrade that gets attention every time.",
-        shortDesc: "Fiber-optic star ceiling install",
-        category: "interior",
-        badge: "NEW",
-        badgeClass: "blue",
-        piClass: "pi-3",
-        label: "STARLIGHT\nHEADLINER",
-        emoji: "✨"
-      },
-      {
-        id: 4,
-        name: "Interior Ambient Lighting",
-        description: "Multi-color LED lighting installed throughout your interior — footwells, dash, doors. App or remote controlled, fully customizable to your style.",
-        shortDesc: "Multi-color LED interior lighting",
-        category: "interior",
-        badge: null,
-        badgeClass: "",
-        piClass: "pi-4",
-        label: "AMBIENT\nLIGHTING",
-        emoji: "💡"
-      },
-      {
-        id: 5,
-        name: "Rock Lights",
-        description: "Underbody LED rock light kits for trucks, Jeeps, and off-road builds. Durable, weatherproof, and available in multiple colors and patterns.",
-        shortDesc: "Underbody LED rock light kits",
-        category: "interior",
-        badge: null,
-        badgeClass: "",
-        piClass: "pi-5",
-        label: "ROCK\nLIGHTS",
-        emoji: "🔦"
-      },
-      {
-        id: 6,
-        name: "Vehicle Wrap",
-        description: "Full color-change wraps or partial accent wraps. Change the whole look of your vehicle without the cost or commitment of paint.",
-        shortDesc: "Full or partial color change wraps",
-        category: "wrap",
-        badge: "POPULAR",
-        badgeClass: "",
-        piClass: "pi-6",
-        label: "VEHICLE\nWRAP",
-        emoji: "🚘"
-      },
-      {
-        id: 7,
-        name: "Mechanic Services",
-        description: "General repair and maintenance work alongside our custom builds. Ask about availability for your specific issue when you book.",
-        shortDesc: "General repair & maintenance work",
-        category: "mechanic",
-        badge: null,
-        badgeClass: "",
-        piClass: "pi-7",
-        label: "MECHANIC\nSERVICES",
-        emoji: "🔧"
-      }
-    ];
-
-    /* ---- STATE ---- */
-    let currentFilter = 'all';
-    let currentSearch = '';
-    let modalProductId = null;
-
-    /* ---- RENDER SERVICES ---- */
-    function getFiltered() {
-      return products.filter(p => {
-        const matchCat = currentFilter === 'all' || p.category === currentFilter;
-        const matchSearch = p.name.toLowerCase().includes(currentSearch.toLowerCase()) ||
-                            p.shortDesc.toLowerCase().includes(currentSearch.toLowerCase()) ||
-                            p.category.toLowerCase().includes(currentSearch.toLowerCase());
-        return matchCat && matchSearch;
-      });
-    }
-
-    function renderProducts() {
-      const grid = document.getElementById('productsGrid');
-      const filtered = getFiltered();
-
-      if (filtered.length === 0) {
-        grid.innerHTML = `<div class="no-results">NO SERVICES FOUND</div>`;
-        return;
-      }
-
-      grid.innerHTML = filtered.map(p => `
-        <div class="product-card" data-id="${p.id}" onclick="openModal(${p.id})">
-          <div class="product-img ${p.piClass}">
-            <span class="product-img-label">${p.label}</span>
-            ${p.badge ? `<div class="product-badge ${p.badgeClass}">${p.badge}</div>` : ''}
-            <div class="product-overlay">
-              <a href="contact.html" class="add-btn" onclick="event.stopPropagation()">BOOK NOW</a>
-            </div>
-          </div>
-          <div class="product-info">
-            <h4>${p.name}</h4>
-            <p>${p.shortDesc}</p>
-          </div>
-        </div>
-      `).join('');
-    }
-
-    /* ---- FILTER ---- */
-    function filterProducts(category, btn) {
-      currentFilter = category;
-      document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      renderProducts();
-    }
-
-    /* ---- SEARCH ---- */
-    function handleSearch(val) {
-      currentSearch = val;
-      renderProducts();
-    }
-
-    /* ---- MODAL ---- */
-    function openModal(id) {
-      const p = products.find(p => p.id === id);
-      if (!p) return;
-      modalProductId = id;
-
-      document.getElementById('modalImg').className = 'modal-img ' + p.piClass;
-      document.getElementById('modalImg').innerHTML = `<span class="product-img-label" style="font-size:3rem;">${p.label}</span>`;
-      document.getElementById('modalName').textContent = p.name;
-      document.getElementById('modalDesc').textContent = p.description;
-
-      const badge = document.getElementById('modalBadge');
-      if (p.badge) {
-        badge.innerHTML = `<div class="modal-badge ${p.badgeClass}">${p.badge}</div>`;
-      } else {
-        badge.innerHTML = '';
-      }
-
-      document.getElementById('modalOverlay').classList.add('open');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal() {
-      document.getElementById('modalOverlay').classList.remove('open');
-      document.body.style.overflow = '';
-      modalProductId = null;
-    }
-
-    function closeModalOutside(e) {
-      if (e.target === document.getElementById('modalOverlay')) closeModal();
-    }
-
-    /* ---- NAV ---- */
     function toggleMenu() {
       document.getElementById('navLinks').classList.toggle('open');
     }
-
-    /* ---- NAVBAR SCROLL ---- */
     window.addEventListener('scroll', () => {
       const nav = document.querySelector('.navbar');
       nav.classList.toggle('scrolled', window.scrollY > 50);
-    });
-
-    /* ---- ESC TO CLOSE MODAL ---- */
-    document.addEventListener('keydown', e => {
-      if (e.key === 'Escape') closeModal();
-    });
-
-    /* ---- URL param pre-filter (from homepage category links) ---- */
-    function applyUrlFilter() {
-      const params = new URLSearchParams(window.location.search);
-      const cat = params.get('cat');
-      if (cat) {
-        const btn = document.querySelector(`.filter-btn[onclick*="'${cat}'"]`);
-        if (btn) { filterProducts(cat, btn); return; }
-      }
-      renderProducts();
-    }
-
-    /* ---- INIT ---- */
-    document.addEventListener('DOMContentLoaded', () => {
-      applyUrlFilter();
     });
   </script>
 

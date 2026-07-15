@@ -230,26 +230,31 @@ body {
 
 .slide-1 {
   background-color: #0a1220;
-  background-image: radial-gradient(ellipse at 25% 55%, rgba(60,100,180,0.35) 0%, transparent 60%),
-    radial-gradient(ellipse at 80% 20%, rgba(204,34,0,0.2) 0%, transparent 50%),
-    repeating-linear-gradient(45deg, transparent, transparent 40px, rgba(255,255,255,0.012) 40px, rgba(255,255,255,0.012) 41px);
+  background-image: url('photos/0B00A6D9-0515-4F2B-AD92-BCE018D1E51C.jpeg'), radial-gradient(ellipse at 25% 55%, rgba(60,100,180,0.35) 0%, transparent 60%),
+    radial-gradient(ellipse at 80% 20%, rgba(204,34,0,0.2) 0%, transparent 50%);
+  background-size: cover, auto, auto;
+  background-position: center, center, center;
 }
 .slide-2 {
   background-color: #120808;
-  background-image: radial-gradient(ellipse at 70% 60%, rgba(204,34,0,0.4) 0%, transparent 55%),
-    radial-gradient(ellipse at 15% 30%, rgba(180,80,0,0.2) 0%, transparent 50%),
-    repeating-linear-gradient(-45deg, transparent, transparent 40px, rgba(255,255,255,0.012) 40px, rgba(255,255,255,0.012) 41px);
+  background-image: url('photos/soundsystem.jpg'), radial-gradient(ellipse at 70% 60%, rgba(204,34,0,0.4) 0%, transparent 55%),
+    radial-gradient(ellipse at 15% 30%, rgba(180,80,0,0.2) 0%, transparent 50%);
+  background-size: cover, auto, auto;
+  background-position: center, center, center;
 }
 .slide-3 {
   background-color: #080c10;
-  background-image: radial-gradient(ellipse at 50% 75%, rgba(40,80,160,0.3) 0%, transparent 60%),
+  background-image: url('photos/interiorlighting.jpeg'), radial-gradient(ellipse at 50% 75%, rgba(40,80,160,0.3) 0%, transparent 60%),
     radial-gradient(ellipse at 85% 15%, rgba(204,34,0,0.2) 0%, transparent 45%);
+  background-size: cover, auto, auto;
+  background-position: center, center, center;
 }
 .slide-4 {
   background-color: #0c0c0c;
-  background-image: radial-gradient(ellipse at 35% 45%, rgba(204,34,0,0.25) 0%, transparent 55%),
-    radial-gradient(ellipse at 75% 65%, rgba(60,60,120,0.3) 0%, transparent 55%),
-    repeating-linear-gradient(90deg, transparent, transparent 80px, rgba(255,255,255,0.01) 80px, rgba(255,255,255,0.01) 81px);
+  background-image: url('photos/C741D7A1-A32E-483E-9593-155904EAD84D.jpeg'), radial-gradient(ellipse at 35% 45%, rgba(204,34,0,0.25) 0%, transparent 55%),
+    radial-gradient(ellipse at 75% 65%, rgba(60,60,120,0.3) 0%, transparent 55%);
+  background-size: cover, auto, auto;
+  background-position: center, center, center;
 }
 
 .slide-label {
@@ -535,15 +540,15 @@ body {
 .gallery-item:nth-child(4) .gallery-img,
 .gallery-item:nth-child(7) .gallery-img { aspect-ratio: 2/1; }
 
-/* Placeholder gradients */
-.gi-1 { background-color: #0e1520; background-image: radial-gradient(ellipse at 30% 40%, rgba(0,100,200,0.55) 0%, transparent 65%), radial-gradient(ellipse at 80% 80%, rgba(200,60,0,0.25) 0%, transparent 50%); }
-.gi-2 { background-color: #1a1000; background-image: radial-gradient(ellipse at 60% 30%, rgba(220,100,0,0.55) 0%, transparent 60%), radial-gradient(ellipse at 20% 70%, rgba(180,20,0,0.3) 0%, transparent 50%); }
-.gi-3 { background-color: #0a0a0a; background-image: radial-gradient(ellipse at 40% 60%, rgba(255,255,255,0.07) 0%, transparent 60%), repeating-linear-gradient(45deg, transparent, transparent 20px, rgba(255,255,255,0.015) 20px, rgba(255,255,255,0.015) 21px); }
-.gi-4 { background-color: #0c1418; background-image: radial-gradient(ellipse at 70% 50%, rgba(0,160,130,0.35) 0%, transparent 60%), radial-gradient(ellipse at 20% 30%, rgba(0,100,200,0.25) 0%, transparent 50%); }
-.gi-5 { background-color: #180a00; background-image: radial-gradient(ellipse at 50% 50%, rgba(220,120,0,0.5) 0%, transparent 65%); }
-.gi-6 { background-color: #0a0f1a; background-image: radial-gradient(ellipse at 30% 70%, rgba(80,40,200,0.35) 0%, transparent 60%), radial-gradient(ellipse at 80% 20%, rgba(0,100,200,0.3) 0%, transparent 50%); }
-.gi-7 { background-color: #10100a; background-image: radial-gradient(ellipse at 60% 40%, rgba(180,180,0,0.3) 0%, transparent 60%), radial-gradient(ellipse at 20% 80%, rgba(200,140,0,0.2) 0%, transparent 50%); }
-.gi-8 { background-color: #14080a; background-image: radial-gradient(ellipse at 40% 40%, rgba(200,20,0,0.45) 0%, transparent 60%), radial-gradient(ellipse at 80% 70%, rgba(180,100,0,0.15) 0%, transparent 50%); }
+/* Gallery images */
+.gi-1 { background-image: url('photos/0B00A6D9-0515-4F2B-AD92-BCE018D1E51C.jpeg'); background-size: cover; background-position: center; }
+.gi-2 { background-image: url('photos/soundsystem.jpg'); background-size: cover; background-position: center; }
+.gi-3 { background-image: url('photos/interiorlighting.jpeg'); background-size: cover; background-position: center; }
+.gi-4 { background-image: url('photos/interiorlighting.jpeg'); background-size: cover; background-position: center; }
+.gi-5 { background-image: url('photos/0FCB6A20-0DD2-47A6-80B2-6A8CEC1FD9CA.jpeg'); background-size: cover; background-position: center; }
+.gi-6 { background-image: url('photos/C741D7A1-A32E-483E-9593-155904EAD84D.jpeg'); background-size: cover; background-position: center; }
+.gi-7 { background-image: url('photos/A8178A2B-8B46-4034-9326-597C5513E522.jpeg'); background-size: cover; background-position: center; }
+.gi-8 { background-image: url('photos/1EBF1B9A-931E-4580-9437-861467F1E5EE_4_5005_c.jpeg'); background-size: cover; background-position: center; }
 
 .gallery-item:hover .gallery-img { transform: scale(1.05); }
 
@@ -600,11 +605,11 @@ body {
 }
 .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
-/* Placeholder product backgrounds */
-.pi-1  { background-color: #0e1520; background-image: radial-gradient(ellipse at 40% 40%, rgba(0,100,200,0.5) 0%, transparent 65%); }
-.pi-2  { background-color: #1a1000; background-image: radial-gradient(ellipse at 60% 50%, rgba(220,80,0,0.5) 0%, transparent 65%); }
-.pi-3  { background-color: #0a100a; background-image: radial-gradient(ellipse at 50% 50%, rgba(0,160,70,0.4) 0%, transparent 65%); }
-.pi-4  { background-color: #14080a; background-image: radial-gradient(ellipse at 40% 60%, rgba(200,20,0,0.45) 0%, transparent 65%); }
+/* Product images */
+.pi-1  { background-image: url('photos/38D35423-4D56-4F00-8AB6-3064D7BF3ED0_4_5005_c.jpeg'); background-size: cover; background-position: center; }
+.pi-2  { background-image: url('photos/soundsystem.jpg'); background-size: cover; background-position: center; }
+.pi-3  { background-image: url('photos/3A6DAF3F-E5A7-474B-9E6A-48D325C720F0_4_5005_c.jpeg'); background-size: cover; background-position: center; }
+.pi-4  { background-image: url('photos/3DABC183-2594-4A69-981A-21B0A86948F9_4_5005_c.jpeg'); background-size: cover; background-position: center; }
 .pi-5  { background-color: #0d0d14; background-image: radial-gradient(ellipse at 60% 40%, rgba(90,40,220,0.4) 0%, transparent 65%); }
 .pi-6  { background-color: #0a1410; background-image: radial-gradient(ellipse at 40% 60%, rgba(0,150,90,0.45) 0%, transparent 65%); }
 .pi-7  { background-color: #180e00; background-image: radial-gradient(ellipse at 55% 45%, rgba(210,110,0,0.45) 0%, transparent 65%); }
