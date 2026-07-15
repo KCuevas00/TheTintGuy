@@ -170,6 +170,14 @@ body {
   font-size: 0.8rem;
 }
 
+.nav-socials { display: flex; align-items: center; gap: 14px; }
+.nav-socials a {
+  color: var(--mid); font-size: 1rem;
+  transition: color 0.2s, transform 0.2s;
+}
+.nav-socials a:hover { color: var(--white); transform: translateY(-2px); }
+@media (max-width: 1080px) { .nav-socials { display: none; } }
+
 .hamburger {
   display: none; flex-direction: column; gap: 5px;
   background: none; border: none; cursor: pointer; padding: 4px;
@@ -315,6 +323,65 @@ body {
   color: rgba(255,255,255,0.3); letter-spacing: 3px;
 }
 .slide-counter .current { color: var(--white); font-size: 1.4rem; }
+
+/* =============================================
+   SOCIAL STRIP
+   ============================================= */
+
+.social-strip {
+  background: var(--black);
+  padding: 64px 40px;
+  position: relative;
+  overflow: hidden;
+}
+.social-strip::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse at 15% 30%, rgba(204,34,0,0.14) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 70%, rgba(40,80,160,0.1) 0%, transparent 55%);
+}
+.social-strip-inner {
+  position: relative; z-index: 1;
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 48px; flex-wrap: wrap;
+}
+.social-strip-text { max-width: 440px; }
+.social-strip-text .section-tag { color: #ff6644; }
+.social-strip-text h2 {
+  font-family: var(--font-display); color: var(--white);
+  font-size: clamp(1.8rem, 3.2vw, 2.6rem);
+  letter-spacing: 2px; line-height: 1.02; margin-bottom: 14px;
+}
+.social-strip-text p {
+  color: var(--mid); font-size: 0.9rem; line-height: 1.6;
+}
+
+.social-strip-btns { display: flex; gap: 12px; flex-wrap: wrap; }
+.social-strip-btn {
+  display: flex; align-items: center; gap: 10px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: var(--white); text-decoration: none;
+  padding: 13px 20px;
+  font-family: var(--font-cond); font-size: 0.85rem;
+  font-weight: 700; letter-spacing: 1px;
+  transition: border-color 0.2s, background 0.2s, transform 0.2s;
+}
+.social-strip-btn i { font-size: 1.1rem; }
+.social-strip-btn:hover { transform: translateY(-2px); background: rgba(255,255,255,0.08); }
+.social-strip-btn.tiktok:hover    { border-color: #ffffff; }
+.social-strip-btn.instagram:hover { border-color: #dc2743; }
+.social-strip-btn.snapchat:hover  { border-color: #fffc00; }
+.social-strip-btn.whatsapp:hover  { border-color: #25d366; }
+.social-strip-btn.telegram:hover  { border-color: #26a5e4; }
+
+@media (max-width: 700px) {
+  .social-strip-inner { flex-direction: column; align-items: flex-start; }
+  .social-strip-btn span { display: none; }
+  .social-strip-btn { padding: 13px; }
+}
 
 /* =============================================
    CATEGORY POSTERS  (replaces services)
