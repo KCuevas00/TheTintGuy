@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>The Tint Guy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpg" alt="The Tint Guy" class="nav-logo-img" />
+      <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="index.html#categories">Services</a></li>
+      <li><a href="shop.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn-primary nav-book-btn">BOOK NOW</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- TICKER -->
+  <div class="ticker-wrap">
+    <div class="ticker">
+      <span>WINDOW TINT</span><span class="sep">✦</span>
+      <span>SOUND SYSTEMS</span><span class="sep">✦</span>
+      <span>STARLIGHT HEADLINERS</span><span class="sep">✦</span>
+      <span>AMBIENT LIGHTING</span><span class="sep">✦</span>
+      <span>ROCK LIGHTS</span><span class="sep">✦</span>
+      <span>VEHICLE WRAPS</span><span class="sep">✦</span>
+      <span>MECHANIC SERVICES</span><span class="sep">✦</span>
+      <span>WINDOW TINT</span><span class="sep">✦</span>
+      <span>SOUND SYSTEMS</span><span class="sep">✦</span>
+      <span>STARLIGHT HEADLINERS</span><span class="sep">✦</span>
+      <span>AMBIENT LIGHTING</span><span class="sep">✦</span>
+      <span>ROCK LIGHTS</span><span class="sep">✦</span>
+      <span>VEHICLE WRAPS</span><span class="sep">✦</span>
+      <span>MECHANIC SERVICES</span><span class="sep">✦</span>
+    </div>
+  </div>
+
+  <!-- HERO SLIDESHOW -->
+  <section class="hero">
+    <div class="hero-slides">
+      <div class="hero-slide slide-1 active"><div class="slide-label">WINDOW<br>TINT</div></div>
+      <div class="hero-slide slide-2"><div class="slide-label">SOUND<br>SYSTEMS</div></div>
+      <div class="hero-slide slide-3"><div class="slide-label">STARLIGHT<br>HEADLINERS</div></div>
+      <div class="hero-slide slide-4"><div class="slide-label">VEHICLE<br>WRAPS</div></div>
+    </div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <div class="hero-badge">TINT · AUDIO · LIGHTING · WRAPS</div>
+      <h1 class="hero-title">
+        <span class="line1">CUSTOM AUTO</span>
+        <span class="line2">TINT & </span>
+        <span class="line3">BUILDS</span>
+      </h1>
+      <p class="hero-sub">Window Tint · Sound Systems · Starlight Headliners · Ambient Lighting · Wraps</p>
+      <div class="hero-btns">
+        <a href="contact.html" class="btn-primary on-dark-btn">BOOK AN APPOINTMENT</a>
+        <a href="shop.html" class="btn-secondary on-dark-btn">VIEW SERVICES</a>
+      </div>
+    </div>
+    <div class="slide-dots">
+      <button class="dot active" onclick="goToSlide(0)"></button>
+      <button class="dot" onclick="goToSlide(1)"></button>
+      <button class="dot" onclick="goToSlide(2)"></button>
+      <button class="dot" onclick="goToSlide(3)"></button>
+    </div>
+    <div class="slide-counter">
+      <span class="current" id="slideCurrentNum">01</span>
+      <span> / 04</span>
+    </div>
+  </section>
+
+  <!-- CATEGORY POSTERS -->
+  <div class="categories" id="categories">
+    <a href="shop.html?cat=tint" class="cat-poster">
+      <div class="cat-poster-img cat-vehicle"></div>
+      <div class="cat-poster-overlay">
+        <div class="cat-name">WINDOW<br>TINT</div>
+        <div class="cat-link"><i class="fas fa-arrow-right"></i> VIEW SERVICE</div>
+      </div>
+    </a>
+    <a href="shop.html?cat=audio" class="cat-poster">
+      <div class="cat-poster-img cat-signs"></div>
+      <div class="cat-poster-overlay">
+        <div class="cat-name">SOUND<br>SYSTEMS</div>
+        <div class="cat-link"><i class="fas fa-arrow-right"></i> VIEW SERVICE</div>
+      </div>
+    </a>
+    <a href="shop.html?cat=interior" class="cat-poster">
+      <div class="cat-poster-img cat-apparel"></div>
+      <div class="cat-poster-overlay">
+        <div class="cat-name">INTERIOR<br>LIGHTING</div>
+        <div class="cat-link"><i class="fas fa-arrow-right"></i> VIEW SERVICE</div>
+      </div>
+    </a>
+    <a href="shop.html?cat=wrap" class="cat-poster">
+      <div class="cat-poster-img cat-print"></div>
+      <div class="cat-poster-overlay">
+        <div class="cat-name">VEHICLE<br>WRAPS</div>
+        <div class="cat-link"><i class="fas fa-arrow-right"></i> VIEW SERVICE</div>
+      </div>
+    </a>
+    <a href="shop.html?cat=mechanic" class="cat-poster">
+      <div class="cat-poster-img cat-cnc"></div>
+      <div class="cat-poster-overlay">
+        <div class="cat-name">MECHANIC<br>SERVICES</div>
+        <div class="cat-link"><i class="fas fa-arrow-right"></i> VIEW SERVICE</div>
+      </div>
+    </a>
+    <a href="shop.html?cat=interior" class="cat-poster">
+      <div class="cat-poster-img cat-banners"></div>
+      <div class="cat-poster-overlay">
+        <div class="cat-name">ROCK<br>LIGHTS</div>
+        <div class="cat-link"><i class="fas fa-arrow-right"></i> VIEW SERVICE</div>
+      </div>
+    </a>
+  </div>
+
+  <!-- FEATURED SERVICES -->
+  <section class="featured-products" id="featured">
+    <div class="section-header">
+      <span class="section-tag">WHAT WE DO</span>
+      <h2>OUR SERVICES</h2>
+    </div>
+    <div class="featured-grid" id="featuredGrid"></div>
+    <div class="shop-all-wrap">
+      <a href="shop.html" class="btn-primary">VIEW ALL SERVICES</a>
+    </div>
+  </section>
+
+  <!-- WORK GALLERY -->
+  <section class="gallery" id="gallery">
+    <div class="section-header">
+      <span class="section-tag">RECENT WORK</span>
+      <h2>THE GALLERY</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item video-tile"><div class="gallery-img gi-1"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
+      <div class="gallery-item"><div class="gallery-img gi-2"></div><div class="gallery-overlay"><span class="gallery-tag">SOUND SYSTEM</span></div></div>
+      <div class="gallery-item video-tile"><div class="gallery-img gi-3"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">STARLIGHT HEADLINER</span></div></div>
+      <div class="gallery-item"><div class="gallery-img gi-4"></div><div class="gallery-overlay"><span class="gallery-tag">AMBIENT LIGHTING</span></div></div>
+      <div class="gallery-item video-tile"><div class="gallery-img gi-5"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">ROCK LIGHTS</span></div></div>
+      <div class="gallery-item"><div class="gallery-img gi-6"></div><div class="gallery-overlay"><span class="gallery-tag">VEHICLE WRAP</span></div></div>
+      <div class="gallery-item video-tile"><div class="gallery-img gi-7"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">FULL BUILD</span></div></div>
+      <div class="gallery-item"><div class="gallery-img gi-8"></div><div class="gallery-overlay"><span class="gallery-tag">MECHANIC WORK</span></div></div>
+    </div>
+    <div class="shop-all-wrap">
+      <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="btn-secondary">MORE ON TIKTOK</a>
+      <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="btn-secondary">MORE ON INSTAGRAM</a>
+    </div>
+  </section>
+
+  <!-- STATS BAR -->
+  <div class="stats-bar">
+    <div class="stats-inner">
+      <div class="stat-item"><span class="stat-num">500+</span><span class="stat-label">Vehicles Serviced</span></div>
+      <div class="stat-item"><span class="stat-num">5+</span><span class="stat-label">Years Experience</span></div>
+      <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Client Satisfaction</span></div>
+      <div class="stat-item"><span class="stat-num">6</span><span class="stat-label">Services Offered</span></div>
+    </div>
+  </div>
+
+  <!-- CTA BANNER -->
+  <section class="cta-banner">
+    <div class="cta-banner-bg"></div>
+    <div class="cta-banner-content">
+      <h2>READY TO<br><span>UPGRADE</span><br>YOUR RIDE?</h2>
+      <p>DM on Snapchat, Instagram, or TikTok — or send a request below</p>
+      <div class="cta-btns">
+        <a href="contact.html" class="btn-primary">BOOK AN APPOINTMENT</a>
+        <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="btn-secondary"><i class="fab fa-snapchat" style="margin-right:8px;"></i>SNAPCHAT</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">
+        <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
+      </span>
+      <p>The Tint Guy Corporation</p>
+      <div class="social-links" style="justify-content:center; margin: 14px 0;">
+        <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/thetintguy_27" target="_blank" class="social-btn telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="social-btn snapchat" title="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://wa.me/18159058424" target="_blank" class="social-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+      <p style="margin-top:6px;"><a href="tel:8159058424" style="color:var(--mid); text-decoration:none;">815-905-8424</a></p>
+      <p class="footer-copy">© 2026 The Tint Guy Corporation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    const featuredProducts = [
+      { id:1, name:"Window Tint", shortDesc:"Full vehicle or residential/commercial tint", badge:"POPULAR", badgeClass:"", piClass:"pi-1", label:"WINDOW\nTINT", emoji:"🚙" },
+      { id:2, name:"Sound System Install", shortDesc:"Custom audio builds, subs & amps", badge:"BEST SELLER", badgeClass:"", piClass:"pi-2", label:"SOUND\nSYSTEM", emoji:"🔊" },
+      { id:3, name:"Starlight Headliner", shortDesc:"Fiber-optic star ceiling install", badge:"NEW", badgeClass:"blue", piClass:"pi-3", label:"STARLIGHT\nHEADLINER", emoji:"✨" },
+      { id:4, name:"Vehicle Wrap", shortDesc:"Full or partial color change wraps", badge:null, badgeClass:"", piClass:"pi-4", label:"VEHICLE\nWRAP", emoji:"🚘" }
+    ];
+
+    function renderFeatured() {
+      document.getElementById('featuredGrid').innerHTML = featuredProducts.map(p => `
+        <div class="product-card">
+          <div class="product-img ${p.piClass}">
+            <span class="product-img-label">${p.label}</span>
+            ${p.badge ? `<div class="product-badge ${p.badgeClass}">${p.badge}</div>` : ''}
+            <div class="product-overlay"><a href="contact.html" class="add-btn">BOOK NOW</a></div>
+          </div>
+          <div class="product-info">
+            <h4>${p.name}</h4><p>${p.shortDesc}</p>
+          </div>
+        </div>`).join('');
+    }
+
+    let cur=0;
+    const slides=document.querySelectorAll('.hero-slide');
+    const dots=document.querySelectorAll('.dot');
+    const nums=['01','02','03','04'];
+    function goToSlide(n) {
+      slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
+      cur=n;
+      slides[cur].classList.add('active'); dots[cur].classList.add('active');
+      document.getElementById('slideCurrentNum').textContent=nums[cur];
+    }
+
+    window.addEventListener('scroll',()=>{
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY>50);
+    });
+
+    document.addEventListener('DOMContentLoaded',()=>{
+      renderFeatured();
+      setInterval(()=>goToSlide((cur+1)%slides.length), 5000);
+    });
+  </script>
+</body>
+</html>

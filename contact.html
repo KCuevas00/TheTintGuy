@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Book an Appointment — The Tint Guy</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+</head>
+<body>
+
+  <!-- ===================== NAVBAR ===================== -->
+  <nav class="navbar">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.jpg" alt="The Tint Guy" class="nav-logo-img" />
+      <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
+    </a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="index.html#categories">Services</a></li>
+      <li><a href="shop.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html" class="active">Contact</a></li>
+    </ul>
+    <div class="nav-actions">
+      <a href="contact.html" class="btn-primary nav-book-btn">BOOK NOW</a>
+      <button class="hamburger" id="hamburger" onclick="toggleMenu()">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ===================== CONTACT HERO ===================== -->
+  <div class="contact-hero">
+    <div class="about-hero-bg"></div>
+    <div style="position:relative; z-index:1;">
+      <span class="section-tag">BOOK AN APPOINTMENT</span>
+      <h1>GET IN <span>TOUCH</span></h1>
+      <p>Appointments are confirmed manually — we'll follow up to lock in a time</p>
+    </div>
+  </div>
+
+  <!-- ===================== CONTACT BODY ===================== -->
+  <section class="contact-body">
+    <div class="contact-grid">
+
+      <!-- LEFT: Info + Social -->
+      <div class="contact-info">
+
+        <p style="font-family:var(--font-cond); font-size:0.85rem; letter-spacing:1px; color:var(--gray); margin-bottom:22px; line-height:1.6;">
+          The fastest way to reach us is through social media — DM us directly to ask questions or check availability. You can also send a request through the form and we'll get back to you to confirm a time.
+        </p>
+
+        <div class="contact-item">
+          <i class="fab fa-snapchat"></i>
+          <div>
+            <span class="contact-label">SNAPCHAT</span>
+            <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank">the.tintguy</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fab fa-instagram"></i>
+          <div>
+            <span class="contact-label">INSTAGRAM</span>
+            <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank">@thetintguy_corp_29</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fab fa-tiktok"></i>
+          <div>
+            <span class="contact-label">TIKTOK</span>
+            <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank">@thetintguy27</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fab fa-telegram"></i>
+          <div>
+            <span class="contact-label">TELEGRAM</span>
+            <a href="https://t.me/thetintguy_27" target="_blank">@thetintguy_27</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fab fa-whatsapp"></i>
+          <div>
+            <span class="contact-label">WHATSAPP / CALL / TEXT</span>
+            <a href="https://wa.me/18159058424" target="_blank">815-905-8424</a>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <i class="fas fa-clock"></i>
+          <div>
+            <span class="contact-label">HOW BOOKING WORKS</span>
+            <span>Every appointment is reviewed and confirmed personally. We'll reach out to schedule a time that works for both of us.</span>
+          </div>
+        </div>
+
+        <div class="social-links">
+          <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="social-btn tiktok" title="TikTok">
+            <i class="fab fa-tiktok"></i>
+          </a>
+          <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="social-btn instagram" title="Instagram">
+            <i class="fab fa-instagram"></i>
+          </a>
+          <a href="https://t.me/thetintguy_27" target="_blank" class="social-btn telegram" title="Telegram">
+            <i class="fab fa-telegram"></i>
+          </a>
+          <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="social-btn snapchat" title="Snapchat">
+            <i class="fab fa-snapchat"></i>
+          </a>
+          <a href="https://wa.me/18159058424" target="_blank" class="social-btn whatsapp" title="WhatsApp">
+            <i class="fab fa-whatsapp"></i>
+          </a>
+        </div>
+
+      </div>
+
+      <!-- RIGHT: Quote Form -->
+      <form class="contact-form" onsubmit="handleForm(event)" novalidate>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <input type="text" placeholder="YOUR NAME" required />
+          </div>
+          <div class="form-group">
+            <input type="text" placeholder="VEHICLE (year / make / model)" />
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:1fr 1fr; gap:12px;">
+          <div class="form-group">
+            <input type="email" placeholder="YOUR EMAIL" />
+          </div>
+          <div class="form-group">
+            <input type="tel" placeholder="YOUR PHONE" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <select required>
+            <option value="" disabled selected>SELECT A SERVICE</option>
+            <option>Window Tint</option>
+            <option>Sound System Install</option>
+            <option>Starlight Headliner</option>
+            <option>Interior Ambient Lighting</option>
+            <option>Rock Lights</option>
+            <option>Vehicle Wrap</option>
+            <option>Mechanic Services</option>
+            <option>Other / Not Sure</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <textarea placeholder="DESCRIBE WHAT YOU WANT DONE — and any preferred dates/times..." rows="5" required></textarea>
+        </div>
+
+        <!-- File upload -->
+        <div class="form-group">
+          <label class="file-upload-label" id="fileLabel" onclick="document.getElementById('fileInput').click()">
+            <i class="fas fa-paperclip"></i>
+            <span id="fileLabelText">ATTACH A REFERENCE PHOTO (optional)</span>
+          </label>
+          <input type="file" id="fileInput" style="display:none" accept=".jpg,.jpeg,.png,.pdf" onchange="handleFile(this)" />
+        </div>
+
+        <button type="submit" class="btn-primary full" id="submitBtn">SEND REQUEST</button>
+        <p style="font-size:0.75rem; color:var(--gray); text-align:center; margin-top:8px; letter-spacing:1px; font-family:var(--font-cond);">This sends a request — appointments are confirmed manually, not booked instantly.</p>
+
+      </form>
+    </div>
+
+  </section>
+
+  <!-- ===================== CTA STRIP ===================== -->
+  <div class="stats-bar" style="text-align:center; padding:48px 40px;">
+    <div style="max-width:800px; margin:0 auto;">
+      <p style="font-family:var(--font-display); font-size:clamp(1.8rem,4vw,3rem); letter-spacing:4px; color:var(--black); line-height:1; margin-bottom:8px;">
+        DM US ANYTIME
+      </p>
+      <p style="font-family:var(--font-cond); font-size:0.85rem; letter-spacing:3px; color:rgba(0,0,0,0.5); font-weight:700;">
+        SNAPCHAT · INSTAGRAM · TIKTOK · TELEGRAM · WHATSAPP
+      </p>
+    </div>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <span class="footer-logo">
+        <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
+      </span>
+      <p>The Tint Guy Corporation</p>
+      <p class="footer-copy">© 2026 The Tint Guy Corporation. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <style>
+    /* ---- Contact page extras ---- */
+    .contact-hero {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .file-upload-label {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      width: 100%;
+      background: var(--dark2);
+      border: 1px dashed #3a3a3a;
+      border-radius: 2px;
+      color: var(--gray);
+      padding: 14px 18px;
+      font-family: var(--font-cond);
+      font-size: 0.85rem;
+      letter-spacing: 1px;
+      cursor: pointer;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .file-upload-label:hover {
+      border-color: var(--yellow);
+      color: var(--white);
+    }
+    .file-upload-label i {
+      color: var(--yellow);
+      font-size: 1rem;
+    }
+    .file-upload-label.has-file {
+      border-color: var(--yellow);
+      color: var(--white);
+    }
+
+    /* Success state overlay on form */
+    .form-success {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 40px;
+      gap: 16px;
+    }
+    .form-success i {
+      font-size: 3rem;
+      color: #22cc44;
+    }
+    .form-success h3 {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      letter-spacing: 4px;
+    }
+    .form-success p {
+      font-family: var(--font-cond);
+      font-size: 0.9rem;
+      letter-spacing: 2px;
+      color: var(--gray);
+    }
+
+    @media (max-width: 600px) {
+      .contact-grid > form > div[style*="grid-template-columns:1fr 1fr"] {
+        grid-template-columns: 1fr !important;
+      }
+    }
+  </style>
+
+  <script>
+    /* ---- FILE UPLOAD LABEL ---- */
+    function handleFile(input) {
+      const label = document.getElementById('fileLabel');
+      const labelText = document.getElementById('fileLabelText');
+      if (input.files && input.files[0]) {
+        labelText.textContent = input.files[0].name;
+        label.classList.add('has-file');
+      } else {
+        labelText.textContent = 'ATTACH A REFERENCE PHOTO (optional)';
+        label.classList.remove('has-file');
+      }
+    }
+
+    /* ---- FORM SUBMIT ---- */
+    function handleForm(e) {
+      e.preventDefault();
+      const form = e.target;
+      const btn = document.getElementById('submitBtn');
+
+      // Button loading state
+      btn.textContent = 'SENDING...';
+      btn.style.opacity = '0.7';
+      btn.disabled = true;
+
+      // Simulate send (replace with real backend/Formspree/EmailJS call)
+      setTimeout(() => {
+        form.innerHTML = `
+          <div class="form-success">
+            <i class="fas fa-check-circle"></i>
+            <h3>REQUEST SENT!</h3>
+            <p>We'll reach out to confirm a time. For a faster response, DM us on Snapchat or Instagram.</p>
+            <a href="shop.html" class="btn-primary" style="margin-top:8px;">VIEW SERVICES</a>
+          </div>
+        `;
+      }, 1200);
+    }
+
+    /* ---- NAV ---- */
+    function toggleMenu() {
+      document.getElementById('navLinks').classList.toggle('open');
+    }
+
+    window.addEventListener('scroll', () => {
+      document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY > 50);
+    });
+  </script>
+
+</body>
+</html>
