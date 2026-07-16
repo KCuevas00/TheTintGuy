@@ -138,9 +138,10 @@ body {
   text-decoration: none; display: flex; align-items: center; gap: 10px;
 }
 .nav-logo-img {
-  width: 34px; height: 34px; object-fit: contain;
-  border-radius: 3px;
+  width: 46px; height: 46px; object-fit: contain;
+  border-radius: 4px;
 }
+.nav-logo-text { display: inline-block; }
 .logo-wolf    { color: #ffffff; }
 .logo-signs   { color: var(--accent); margin-left: 3px; }
 
@@ -843,6 +844,11 @@ body {
     radial-gradient(ellipse at 70% 40%, rgba(40,80,160,0.1) 0%, transparent 55%);
 }
 .about-hero-content { position: relative; z-index: 1; }
+.about-logo-emblem {
+  width: 84px; height: 84px; object-fit: contain;
+  border-radius: 50%; border: 2px solid var(--accent);
+  background: var(--white); padding: 8px; margin-bottom: 22px;
+}
 .about-hero h1 {
   font-family: var(--font-display);
   font-size: clamp(4rem, 10vw, 9rem);
@@ -1054,6 +1060,61 @@ body {
 .footer-copy { font-size: 0.72rem !important; opacity: 0.5; }
 
 /* =============================================
+   LIGHTBOX
+   ============================================= */
+
+.gallery-item { cursor: zoom-in; }
+
+.lightbox-overlay {
+  position: fixed; inset: 0; background: rgba(0,0,0,0.93);
+  z-index: 4000; display: flex; align-items: center; justify-content: center;
+  opacity: 0; pointer-events: none; transition: opacity 0.25s;
+}
+.lightbox-overlay.open { opacity: 1; pointer-events: all; }
+
+.lightbox-img-wrap {
+  position: relative; max-width: 88vw; max-height: 82vh;
+  display: flex; align-items: center; justify-content: center;
+}
+.lightbox-img-wrap img {
+  max-width: 88vw; max-height: 82vh; object-fit: contain;
+  user-select: none; -webkit-user-drag: none;
+}
+.lightbox-tag {
+  position: absolute; bottom: -42px; left: 50%; transform: translateX(-50%);
+  font-family: var(--font-cond); font-size: 0.75rem; font-weight: 700;
+  letter-spacing: 2px; color: var(--white); background: var(--accent);
+  padding: 6px 16px; white-space: nowrap;
+}
+.lightbox-close {
+  position: absolute; top: 24px; right: 30px; background: none; border: none;
+  color: var(--white); font-size: 2rem; line-height: 1; cursor: pointer;
+  z-index: 2; opacity: 0.8; transition: opacity 0.2s;
+}
+.lightbox-close:hover { opacity: 1; }
+.lightbox-arrow {
+  position: absolute; top: 50%; transform: translateY(-50%);
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.2);
+  color: var(--white); width: 50px; height: 50px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.1rem; cursor: pointer; transition: background 0.2s; z-index: 2;
+}
+.lightbox-arrow:hover { background: rgba(255,255,255,0.18); }
+.lightbox-prev { left: 20px; }
+.lightbox-next { right: 20px; }
+.lightbox-counter {
+  position: absolute; top: 26px; left: 30px; color: rgba(255,255,255,0.55);
+  font-family: var(--font-cond); font-size: 0.8rem; letter-spacing: 2px;
+}
+@media (max-width: 700px) {
+  .lightbox-arrow { width: 40px; height: 40px; font-size: 0.95rem; }
+  .lightbox-prev { left: 6px; }
+  .lightbox-next { right: 6px; }
+  .lightbox-close { top: 16px; right: 16px; font-size: 1.6rem; }
+  .lightbox-counter { top: 18px; left: 16px; }
+}
+
+/* =============================================
    RESPONSIVE
    ============================================= */
 
@@ -1110,4 +1171,13 @@ body {
   .gallery, .featured-products, .shop, .about-story,
   .testimonials, .contact-body, .cta-banner, .services { padding: 64px 20px; }
   .footer { padding: 32px 20px; }
+
+  .shop-all-wrap.equal-btns {
+    display: flex; gap: 8px;
+  }
+  .shop-all-wrap.equal-btns a {
+    flex: 1; padding-left: 8px; padding-right: 8px;
+    font-size: 0.72rem; letter-spacing: 1.5px;
+    white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+  }
 }
