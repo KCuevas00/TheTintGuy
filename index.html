@@ -61,20 +61,23 @@
   <!-- HERO SLIDESHOW -->
   <section class="hero">
     <div class="hero-slides">
-      <div class="hero-slide slide-1 active"><div class="slide-label">WINDOW<br>TINT</div></div>
-      <div class="hero-slide slide-2"><div class="slide-label">SOUND<br>SYSTEMS</div></div>
-      <div class="hero-slide slide-3"><div class="slide-label">STARLIGHT<br>HEADLINERS</div></div>
-      <div class="hero-slide slide-4"><div class="slide-label">VEHICLE<br>WRAPS</div></div>
+      <div class="hero-slide slide-1 active"></div>
+      <div class="hero-slide slide-2"></div>
+      <div class="hero-slide slide-3"></div>
+      <div class="hero-slide slide-4"></div>
     </div>
+    <img src="photos/logo.JPG" alt="" class="hero-logo-watermark" />
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <div class="hero-badge">TINT · AUDIO · LIGHTING · WRAPS</div>
-      <h1 class="hero-title">
-        <span class="line1">CUSTOM AUTO</span>
-        <span class="line2">TINT & </span>
-        <span class="line3">BUILDS</span>
-      </h1>
-      <p class="hero-sub">Window Tint · Sound Systems · Starlight Headliners · Ambient Lighting · Wraps</p>
+      <div class="hero-badge">SERVING DEKALB, IL AND THE SURROUNDING AREA</div>
+      <div class="hero-title-row">
+        <img src="photos/logo.JPG" alt="The Tint Guy" class="hero-logo-mark" />
+        <h1 class="hero-title">
+          <span class="line2" id="heroWordMain">WINDOW</span>
+          <span class="line3" id="heroWordSub">TINT</span>
+        </h1>
+      </div>
+      <p class="hero-sub">High-quality tints, done professionally.</p>
       <div class="hero-btns">
         <a href="contact.html" class="btn-primary on-dark-btn">BOOK AN APPOINTMENT</a>
         <a href="shop.html" class="btn-secondary on-dark-btn">VIEW SERVICES</a>
@@ -148,10 +151,12 @@
       <div class="gallery-item video-tile"><div class="gallery-img gi-7"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">FULL BUILD</span></div></div>
       <div class="gallery-item"><div class="gallery-img gi-8"></div><div class="gallery-overlay"><span class="gallery-tag">MECHANIC WORK</span></div></div>
     </div>
-    <div class="shop-all-wrap equal-btns">
+    <div class="gallery-cta-group">
       <a href="gallery.html" class="btn-secondary"><i class="fas fa-images" style="margin-right:8px;"></i>SEE FULL GALLERY</a>
-      <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="btn-secondary"><i class="fab fa-tiktok" style="margin-right:8px;"></i>MORE ON TIKTOK</a>
-      <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="btn-secondary"><i class="fab fa-instagram" style="margin-right:8px;"></i>MORE ON INSTAGRAM</a>
+      <div class="gallery-cta-social-row">
+        <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="btn-secondary"><i class="fab fa-tiktok" style="margin-right:8px;"></i>MORE ON TIKTOK</a>
+        <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="btn-secondary"><i class="fab fa-instagram" style="margin-right:8px;"></i>MORE ON INSTAGRAM</a>
+      </div>
     </div>
   </section>
 
@@ -213,7 +218,7 @@
 
   <!-- CTA BANNER -->
   <section class="cta-banner">
-    <div class="cta-banner-bg" style="background-image: url('photos/logo.JPG'); background-size: 300px; background-repeat: no-repeat; background-position: center; opacity: 0.05;"></div>
+    <div class="cta-banner-bg"></div>
     <div class="cta-banner-content">
       <h2>READY TO<br><span>UPGRADE</span><br>YOUR RIDE?</h2>
       <p>DM on Snapchat, Instagram, or TikTok — or send a request below</p>
@@ -277,11 +282,31 @@
     const slides=document.querySelectorAll('.hero-slide');
     const dots=document.querySelectorAll('.dot');
     const nums=['01','02','03','04'];
+    const heroWords=[
+      ['WINDOW','TINT'],
+      ['SOUND','SYSTEMS'],
+      ['STARLIGHT','HEADLINERS'],
+      ['VEHICLE','WRAPS']
+    ];
+    function updateHeroWords(n) {
+      const main = document.getElementById('heroWordMain');
+      const sub = document.getElementById('heroWordSub');
+      if (!main || !sub) return;
+      main.style.opacity = 0;
+      sub.style.opacity = 0;
+      setTimeout(() => {
+        main.textContent = heroWords[n][0];
+        sub.textContent = heroWords[n][1];
+        main.style.opacity = 1;
+        sub.style.opacity = 1;
+      }, 280);
+    }
     function goToSlide(n) {
       slides[cur].classList.remove('active'); dots[cur].classList.remove('active');
       cur=n;
       slides[cur].classList.add('active'); dots[cur].classList.add('active');
       document.getElementById('slideCurrentNum').textContent=nums[cur];
+      updateHeroWords(cur);
     }
 
     window.addEventListener('scroll',()=>{
