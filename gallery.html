@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Gallery — The Tint Guy</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="photos/logo.JPG" type="image/jpeg" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
@@ -14,7 +15,7 @@
   <nav class="navbar">
     <a href="index.html" class="nav-logo">
       <img src="photos/logo.JPG" alt="The Tint Guy" class="nav-logo-img" />
-      <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
+      <span class="nav-logo-text"><span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html">Home</a></li>
@@ -124,6 +125,8 @@
     ];
 
     let currentFilter = 'all';
+    let galleryLightbox = null;
+    let currentLightboxImages = [];
 
     function getFiltered() {
       return galleryItems.filter(item => {
@@ -131,17 +134,76 @@
       });
     }
 
+    function createLightbox() {
+      let current = 0;
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      overlay.innerHTML = `
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" aria-label="Previous">&#10094;</button>
+        <div class="lightbox-img-wrap">
+          <img src="" alt="" />
+          <span class="lightbox-tag"></span>
+        </div>
+        <button class="lightbox-arrow lightbox-next" aria-label="Next">&#10095;</button>
+        <span class="lightbox-counter"></span>
+      `;
+      document.body.appendChild(overlay);
+      const imgEl = overlay.querySelector('img');
+      const tagEl = overlay.querySelector('.lightbox-tag');
+      const counterEl = overlay.querySelector('.lightbox-counter');
+
+      function show(i) {
+        const images = currentLightboxImages;
+        current = (i + images.length) % images.length;
+        imgEl.src = images[current].image;
+        imgEl.alt = images[current].tag || '';
+        tagEl.textContent = images[current].tag || '';
+        counterEl.textContent = `${current + 1} / ${images.length}`;
+      }
+      function open(i) {
+        show(i);
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      overlay.querySelector('.lightbox-close').onclick = close;
+      overlay.querySelector('.lightbox-prev').onclick = () => show(current - 1);
+      overlay.querySelector('.lightbox-next').onclick = () => show(current + 1);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+      document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+      });
+
+      let touchStartX = 0;
+      overlay.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+      overlay.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(dx) > 40) { dx > 0 ? show(current - 1) : show(current + 1); }
+      });
+
+      return { open };
+    }
+
     function renderGallery() {
       const grid = document.getElementById('galleryGrid');
       const filtered = getFiltered();
+      currentLightboxImages = filtered;
 
       if (filtered.length === 0) {
         grid.innerHTML = `<div class="no-results">NO IMAGES FOUND</div>`;
         return;
       }
 
-      grid.innerHTML = filtered.map(item => `
-        <div class="gallery-item">
+      grid.innerHTML = filtered.map((item, idx) => `
+        <div class="gallery-item" data-idx="${idx}">
           <div class="gallery-img" style="background-image: url('${item.image}'); background-size: cover; background-position: center;"></div>
           <div class="gallery-overlay"><span class="gallery-tag">${item.tag}</span></div>
         </div>
@@ -166,6 +228,12 @@
 
     document.addEventListener('DOMContentLoaded', () => {
       renderGallery();
+      galleryLightbox = createLightbox();
+      document.getElementById('galleryGrid').addEventListener('click', (e) => {
+        const itemEl = e.target.closest('.gallery-item');
+        if (!itemEl) return;
+        galleryLightbox.open(parseInt(itemEl.dataset.idx, 10));
+      });
     });
   </script>
 

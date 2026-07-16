@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>The Tint Guy</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="icon" href="photos/logo.JPG" type="image/jpeg" />
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700&family=Barlow:wght@400;500&display=swap" rel="stylesheet"/>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
@@ -14,7 +15,7 @@
   <nav class="navbar">
     <a href="index.html" class="nav-logo">
       <img src="photos/logo.JPG" alt="The Tint Guy" class="nav-logo-img" />
-      <span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span>
+      <span class="nav-logo-text"><span class="logo-wolf">THE TINT</span><span class="logo-signs">GUY</span></span>
     </a>
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" class="active">Home</a></li>
@@ -97,7 +98,7 @@
       <div class="social-strip-text">
         <span class="section-tag">FOLLOW THE WORK</span>
         <h2>SEE IT BEFORE<br>YOU BOOK IT</h2>
-        <p>Every tint, build, and install gets posted — follow along or DM me directly to ask a question or check availability.</p>
+        <p>Follow along for tints, builds, and installs as they happen — or DM me directly to ask a question or check availability.</p>
       </div>
       <div class="social-strip-btns">
         <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="social-strip-btn tiktok">
@@ -147,10 +148,10 @@
       <div class="gallery-item video-tile"><div class="gallery-img gi-7"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">FULL BUILD</span></div></div>
       <div class="gallery-item"><div class="gallery-img gi-8"></div><div class="gallery-overlay"><span class="gallery-tag">MECHANIC WORK</span></div></div>
     </div>
-    <div class="shop-all-wrap">
+    <div class="shop-all-wrap equal-btns">
+      <a href="gallery.html" class="btn-secondary"><i class="fas fa-images" style="margin-right:8px;"></i>SEE FULL GALLERY</a>
       <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="btn-secondary"><i class="fab fa-tiktok" style="margin-right:8px;"></i>MORE ON TIKTOK</a>
       <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="btn-secondary"><i class="fab fa-instagram" style="margin-right:8px;"></i>MORE ON INSTAGRAM</a>
-      <a href="gallery.html" class="btn-secondary"><i class="fas fa-images" style="margin-right:8px;"></i>SEE FULL GALLERY</a>
     </div>
   </section>
 
@@ -218,7 +219,13 @@
       <p>DM on Snapchat, Instagram, or TikTok — or send a request below</p>
       <div class="cta-btns">
         <a href="contact.html" class="btn-primary">BOOK AN APPOINTMENT</a>
-        <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="btn-secondary"><i class="fab fa-snapchat" style="margin-right:8px;"></i>SNAPCHAT</a>
+      </div>
+      <div class="social-links" style="justify-content:center; margin-top:20px;">
+        <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
+        <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://t.me/thetintguy_27" target="_blank" class="social-btn telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
+        <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="social-btn snapchat" title="Snapchat"><i class="fab fa-snapchat"></i></a>
+        <a href="https://wa.me/18159058424" target="_blank" class="social-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
     </div>
   </section>
@@ -281,9 +288,110 @@
       document.querySelector('.navbar').classList.toggle('scrolled', window.scrollY>50);
     });
 
+    /* ---- TICKER: keep it filled edge-to-edge on any screen width ---- */
+    function setupTicker() {
+      const ticker = document.querySelector('.ticker');
+      if (!ticker) return;
+      const unit = ticker.getAttribute('data-unit') || ticker.innerHTML;
+      ticker.setAttribute('data-unit', unit);
+      ticker.innerHTML = unit;
+      const targetWidth = window.innerWidth * 2.5;
+      let guard = 0;
+      while (ticker.scrollWidth < targetWidth && guard < 40) {
+        ticker.innerHTML += unit;
+        guard++;
+      }
+      const half = ticker.innerHTML;
+      ticker.innerHTML = half + half;
+      const speed = 70; // px per second, keeps a constant crawl speed
+      const duration = ticker.scrollWidth / speed;
+      ticker.style.animation = `ticker-scroll ${duration}s linear infinite`;
+    }
+
+    /* ---- LIGHTBOX (expandable gallery images, arrow nav + swipe) ---- */
+    const homeGalleryImages = [
+      { src: 'photos/0B00A6D9-0515-4F2B-AD92-BCE018D1E51C.jpeg', tag: 'WINDOW TINT' },
+      { src: 'photos/soundsystem.jpg', tag: 'SOUND SYSTEM' },
+      { src: 'photos/interiorlighting.jpeg', tag: 'STARLIGHT HEADLINER' },
+      { src: 'photos/interiorlighting.jpeg', tag: 'AMBIENT LIGHTING' },
+      { src: 'photos/0FCB6A20-0DD2-47A6-80B2-6A8CEC1FD9CA.jpeg', tag: 'ROCK LIGHTS' },
+      { src: 'photos/C741D7A1-A32E-483E-9593-155904EAD84D.jpeg', tag: 'VEHICLE WRAP' },
+      { src: 'photos/A8178A2B-8B46-4034-9326-597C5513E522.jpeg', tag: 'FULL BUILD' },
+      { src: 'photos/1EBF1B9A-931E-4580-9437-861467F1E5EE_4_5005_c.jpeg', tag: 'MECHANIC WORK' }
+    ];
+
+    function createLightbox(images) {
+      let current = 0;
+      const overlay = document.createElement('div');
+      overlay.className = 'lightbox-overlay';
+      overlay.innerHTML = `
+        <button class="lightbox-close" aria-label="Close">&times;</button>
+        <button class="lightbox-arrow lightbox-prev" aria-label="Previous">&#10094;</button>
+        <div class="lightbox-img-wrap">
+          <img src="" alt="" />
+          <span class="lightbox-tag"></span>
+        </div>
+        <button class="lightbox-arrow lightbox-next" aria-label="Next">&#10095;</button>
+        <span class="lightbox-counter"></span>
+      `;
+      document.body.appendChild(overlay);
+      const imgEl = overlay.querySelector('img');
+      const tagEl = overlay.querySelector('.lightbox-tag');
+      const counterEl = overlay.querySelector('.lightbox-counter');
+
+      function show(i) {
+        current = (i + images.length) % images.length;
+        imgEl.src = images[current].src;
+        imgEl.alt = images[current].tag || '';
+        tagEl.textContent = images[current].tag || '';
+        counterEl.textContent = `${current + 1} / ${images.length}`;
+      }
+      function open(i) {
+        show(i);
+        overlay.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      }
+      function close() {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+      overlay.querySelector('.lightbox-close').onclick = close;
+      overlay.querySelector('.lightbox-prev').onclick = () => show(current - 1);
+      overlay.querySelector('.lightbox-next').onclick = () => show(current + 1);
+      overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+      document.addEventListener('keydown', (e) => {
+        if (!overlay.classList.contains('open')) return;
+        if (e.key === 'Escape') close();
+        if (e.key === 'ArrowLeft') show(current - 1);
+        if (e.key === 'ArrowRight') show(current + 1);
+      });
+
+      let touchStartX = 0;
+      overlay.addEventListener('touchstart', (e) => { touchStartX = e.changedTouches[0].screenX; });
+      overlay.addEventListener('touchend', (e) => {
+        const dx = e.changedTouches[0].screenX - touchStartX;
+        if (Math.abs(dx) > 40) { dx > 0 ? show(current - 1) : show(current + 1); }
+      });
+
+      return { open };
+    }
+
     document.addEventListener('DOMContentLoaded',()=>{
       renderFeatured();
       setInterval(()=>goToSlide((cur+1)%slides.length), 5000);
+
+      const homeLightbox = createLightbox(homeGalleryImages);
+      document.querySelectorAll('#gallery .gallery-item').forEach((el, i) => {
+        el.addEventListener('click', () => homeLightbox.open(i));
+      });
+    });
+
+    window.addEventListener('load', setupTicker);
+    let tickerResizeTO;
+    window.addEventListener('resize', () => {
+      clearTimeout(tickerResizeTO);
+      tickerResizeTO = setTimeout(setupTicker, 300);
     });
   </script>
 </body>
