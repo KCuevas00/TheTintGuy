@@ -843,11 +843,21 @@ body {
     radial-gradient(ellipse at 30% 60%, rgba(204,34,0,0.12) 0%, transparent 55%),
     radial-gradient(ellipse at 70% 40%, rgba(40,80,160,0.1) 0%, transparent 55%);
 }
-.about-hero-content { position: relative; z-index: 1; }
+.about-hero-content {
+  position: relative; z-index: 1;
+  display: flex; align-items: center; justify-content: center;
+  gap: 36px;
+}
 .about-logo-emblem {
-  width: 84px; height: 84px; object-fit: contain;
-  border-radius: 50%; border: 2px solid var(--accent);
-  background: var(--white); padding: 8px; margin-bottom: 22px;
+  width: 150px; height: 150px; object-fit: contain;
+  border-radius: 50%; border: 3px solid var(--accent);
+  background: var(--white); padding: 14px; flex-shrink: 0;
+}
+.about-hero-text { text-align: left; }
+@media (max-width: 700px) {
+  .about-hero-content { flex-direction: column; gap: 22px; }
+  .about-hero-text { text-align: center; }
+  .about-logo-emblem { width: 110px; height: 110px; }
 }
 .about-hero h1 {
   font-family: var(--font-display);
