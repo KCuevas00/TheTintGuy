@@ -1,1 +1,20 @@
 # TheTintGuy
+
+changes to be made:
+have the navbar logo text match the logo text itself. 
+
+replace review placeholders with real reviews.
+
+remove weird transparent text in homepage gallery previews
+
+add videos 
+
+remove redundant text "what i do" from services page
+
+rename shop to services
+
+modify highlighted tiles in services page 
+
+change about me text. super generic 
+
+contact page, replace form submission placeholder with real email
