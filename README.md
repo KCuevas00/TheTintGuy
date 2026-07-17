@@ -1,6 +1,9 @@
 # TheTintGuy
 
 changes to be made:
+
+logo on pages needs to match hero logo
+
 have the navbar logo text match the logo text itself. 
 
 replace review placeholders with real reviews.
