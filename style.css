@@ -143,6 +143,7 @@ body {
 }
 .nav-logo-text { display: inline-block; }
 .logo-wolf    { color: #ffffff; }
+.logo-wolf + .logo-wolf { margin-left: 5px; }
 .logo-signs   { color: var(--accent); margin-left: 3px; }
 
 .nav-links { display: flex; gap: 32px; list-style: none; }
@@ -867,9 +868,9 @@ body {
   gap: 36px;
 }
 .about-logo-emblem {
-  width: 150px; height: 150px; object-fit: contain;
+  width: 150px; height: 150px; object-fit: cover;
   border-radius: 50%; border: 3px solid var(--accent);
-  background: var(--white); padding: 14px; flex-shrink: 0;
+  flex-shrink: 0;
 }
 .about-hero-text { text-align: left; }
 @media (max-width: 700px) {
