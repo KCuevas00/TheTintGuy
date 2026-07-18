@@ -547,14 +547,45 @@ body {
   max-width: 1300px; margin: 0 auto;
 }
 .gallery-item { position: relative; overflow: hidden; cursor: pointer; }
-.gallery-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
-.gallery-item:nth-child(4) { grid-column: span 2; }
-.gallery-item:nth-child(7) { grid-column: span 2; }
+
+/* Featured items at top */
+.gallery-item.featured { grid-column: span 2; grid-row: span 2; }
+.gallery-item.featured .gallery-img { aspect-ratio: unset; height: 100%; min-height: 320px; }
+
+/* Orientation-based sizing */
+.gallery-item.landscape { grid-column: span 2; }
+.gallery-item.landscape .gallery-img { aspect-ratio: 2/1; }
+
+.gallery-item.portrait { grid-row: span 2; }
+.gallery-item.portrait .gallery-img { aspect-ratio: 1/2; }
+
+.gallery-item.square .gallery-img { aspect-ratio: 1/1; }
 
 .gallery-img {
   width: 100%; aspect-ratio: 1/1;
   display: flex; align-items: center; justify-content: center;
   transition: transform 0.5s ease;
+  position: relative;
+  background: var(--light2);
+}
+
+.gallery-placeholder {
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, var(--light2) 0%, var(--light) 100%);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.gallery-img i.fa-play-circle {
+  position: absolute;
+  color: rgba(255,255,255,0.9);
+  font-size: 2.5rem;
+  filter: drop-shadow(0 2px 8px rgba(0,0,0,0.6));
+  z-index: 2;
 }
 .gallery-item:nth-child(1) .gallery-img { aspect-ratio: unset; height: 100%; min-height: 320px; }
 .gallery-item:nth-child(4) .gallery-img,
@@ -722,7 +753,12 @@ body {
 
 .shop-filters {
   display: flex; justify-content: center;
-  gap: 6px; flex-wrap: wrap; margin-bottom: 48px;
+  gap: 6px; flex-wrap: wrap; margin-bottom: 24px;
+}
+
+.media-type-filters {
+  display: flex; justify-content: center;
+  gap: 6px; flex-wrap: wrap; margin-bottom: 32px;
 }
 .filter-btn {
   background: transparent; color: var(--gray);
@@ -733,6 +769,17 @@ body {
 }
 .filter-btn.active, .filter-btn:hover {
   background: var(--black); color: var(--white); border-color: var(--black);
+}
+
+.media-filter-btn {
+  background: transparent; color: var(--gray);
+  border: 1px solid var(--light2); padding: 7px 18px;
+  font-family: var(--font-cond); font-size: 0.82rem;
+  letter-spacing: 2px; cursor: pointer;
+  transition: all 0.2s; text-transform: uppercase;
+}
+.media-filter-btn.active, .media-filter-btn:hover {
+  background: var(--accent); color: var(--white); border-color: var(--accent);
 }
 
 .products-grid {
@@ -1157,6 +1204,10 @@ body {
   display: flex; align-items: center; justify-content: center;
 }
 .lightbox-img-wrap img {
+  max-width: 88vw; max-height: 82vh; object-fit: contain;
+  user-select: none; -webkit-user-drag: none;
+}
+.lightbox-img-wrap video {
   max-width: 88vw; max-height: 82vh; object-fit: contain;
   user-select: none; -webkit-user-drag: none;
 }
