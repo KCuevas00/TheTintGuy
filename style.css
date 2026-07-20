@@ -141,10 +141,34 @@ body {
   width: 46px; height: 46px; object-fit: contain;
   border-radius: 4px;
 }
-.nav-logo-text { display: inline-block; }
-.logo-wolf    { color: #ffffff; }
-.logo-wolf + .logo-wolf { margin-left: 5px; }
-.logo-signs   { color: var(--accent); margin-left: 3px; }
+.nav-logo-text { 
+  display: inline-block;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  position: relative;
+}
+.logo-main {
+  background: linear-gradient(180deg, #ffffff 0%, #a0a0a0 50%, #ffffff 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.logo-accent {
+  background: linear-gradient(180deg, var(--accent) 0%, #ff4400 50%, var(--accent) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.nav-logo-text::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+}
 
 .nav-links { display: flex; gap: 32px; list-style: none; }
 .nav-links a {
