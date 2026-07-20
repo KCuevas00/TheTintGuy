@@ -596,14 +596,14 @@ body {
 .gallery-item:nth-child(7) .gallery-img { aspect-ratio: 2/1; }
 
 /* Gallery images */
-.gi-1 { background-image: url('photos/herotint.jpeg'); background-size: cover; background-position: center; }
+.gi-1 { background-image: url('photos/civictint.jpeg'); background-size: cover; background-position: center; }
 .gi-2 { background-image: url('photos/soundsystem.jpg'); background-size: cover; background-position: center; }
-.gi-3 { background-image: url('photos/interiorlighting.jpeg'); background-size: cover; background-position: center; }
-.gi-4 { background-image: url('photos/underglow.jpeg'); background-size: cover; background-position: center; }
-.gi-5 { background-image: url('photos/gmcsuvtint.jpeg'); background-size: cover; background-position: center; }
-.gi-6 { background-image: url('photos/graycartint.jpeg'); background-size: cover; background-position: center; }
-.gi-7 { background-image: url('photos/fordtrucktint.jpeg'); background-size: cover; background-position: center; }
-.gi-8 { background-image: url('photos/whitecartint.jpeg'); background-size: cover; background-position: center; }
+.gi-3 { background-image: url('photos/suvtint.jpeg'); background-size: cover; background-position: center; }
+.gi-4 { background-image: url('photos/whitecruzetint.jpeg'); background-size: cover; background-position: center; }
+.gi-5 { background-image: url('photos/doorremovalafter.jpeg'); background-size: cover; background-position: center; }
+.gi-6 { background-image: url('photos/tint (3).jpeg'); background-size: cover; background-position: center; }
+.gi-7 { background-image: url('photos/tint (4).jpeg'); background-size: cover; background-position: center; }
+.gi-8 { background-image: url('photos/trucktint.jpeg'); background-size: cover; background-position: center; }
 
 .gallery-item:hover .gallery-img { transform: scale(1.05); }
 
