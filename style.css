@@ -232,7 +232,7 @@ body {
 
 .slide-1 {
   background-color: #0a1220;
-  background-image: url('photos/0B00A6D9-0515-4F2B-AD92-BCE018D1E51C.jpeg'), radial-gradient(ellipse at 25% 55%, rgba(60,100,180,0.35) 0%, transparent 60%),
+  background-image: url('photos/herotint.jpeg'), radial-gradient(ellipse at 25% 55%, rgba(60,100,180,0.35) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 20%, rgba(204,34,0,0.2) 0%, transparent 50%);
   background-size: cover, auto, auto;
   background-position: center, center, center;
@@ -253,7 +253,7 @@ body {
 }
 .slide-4 {
   background-color: #0c0c0c;
-  background-image: url('photos/C741D7A1-A32E-483E-9593-155904EAD84D.jpeg'), radial-gradient(ellipse at 35% 45%, rgba(204,34,0,0.25) 0%, transparent 55%),
+  background-image: url('photos/gmcsuvtint.jpeg'), radial-gradient(ellipse at 35% 45%, rgba(204,34,0,0.25) 0%, transparent 55%),
     radial-gradient(ellipse at 75% 65%, rgba(60,60,120,0.3) 0%, transparent 55%);
   background-size: cover, auto, auto;
   background-position: center, center, center;
@@ -592,14 +592,14 @@ body {
 .gallery-item:nth-child(7) .gallery-img { aspect-ratio: 2/1; }
 
 /* Gallery images */
-.gi-1 { background-image: url('photos/0B00A6D9-0515-4F2B-AD92-BCE018D1E51C.jpeg'); background-size: cover; background-position: center; }
+.gi-1 { background-image: url('photos/herotint.jpeg'); background-size: cover; background-position: center; }
 .gi-2 { background-image: url('photos/soundsystem.jpg'); background-size: cover; background-position: center; }
 .gi-3 { background-image: url('photos/interiorlighting.jpeg'); background-size: cover; background-position: center; }
-.gi-4 { background-image: url('photos/interiorlighting.jpeg'); background-size: cover; background-position: center; }
-.gi-5 { background-image: url('photos/0FCB6A20-0DD2-47A6-80B2-6A8CEC1FD9CA.jpeg'); background-size: cover; background-position: center; }
-.gi-6 { background-image: url('photos/C741D7A1-A32E-483E-9593-155904EAD84D.jpeg'); background-size: cover; background-position: center; }
-.gi-7 { background-image: url('photos/A8178A2B-8B46-4034-9326-597C5513E522.jpeg'); background-size: cover; background-position: center; }
-.gi-8 { background-image: url('photos/1EBF1B9A-931E-4580-9437-861467F1E5EE_4_5005_c.jpeg'); background-size: cover; background-position: center; }
+.gi-4 { background-image: url('photos/underglow.jpeg'); background-size: cover; background-position: center; }
+.gi-5 { background-image: url('photos/gmcsuvtint.jpeg'); background-size: cover; background-position: center; }
+.gi-6 { background-image: url('photos/graycartint.jpeg'); background-size: cover; background-position: center; }
+.gi-7 { background-image: url('photos/fordtrucktint.jpeg'); background-size: cover; background-position: center; }
+.gi-8 { background-image: url('photos/whitecartint.jpeg'); background-size: cover; background-position: center; }
 
 .gallery-item:hover .gallery-img { transform: scale(1.05); }
 
@@ -657,12 +657,12 @@ body {
 .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Product images */
-.pi-1  { background-image: url('photos/38D35423-4D56-4F00-8AB6-3064D7BF3ED0_4_5005_c.jpeg'); background-size: cover; background-position: center; }
+.pi-1  { background-image: url('photos/tint.jpeg'); background-size: cover; background-position: center; }
 .pi-2  { background-image: url('photos/soundsystem.jpg'); background-size: cover; background-position: center; }
-.pi-3  { background-image: url('photos/3A6DAF3F-E5A7-474B-9E6A-48D325C720F0_4_5005_c.jpeg'); background-size: cover; background-position: center; }
-.pi-4  { background-image: url('photos/3DABC183-2594-4A69-981A-21B0A86948F9_4_5005_c.jpeg'); background-size: cover; background-position: center; }
-.pi-5  { background-color: #0d0d14; background-image: radial-gradient(ellipse at 60% 40%, rgba(90,40,220,0.4) 0%, transparent 65%); }
-.pi-6  { background-color: #0a1410; background-image: radial-gradient(ellipse at 40% 60%, rgba(0,150,90,0.45) 0%, transparent 65%); }
+.pi-3  { background-image: url('photos/interiorlighting.jpeg'); background-size: cover; background-position: center; }
+.pi-4  { background-image: url('photos/fordtrucktint.jpeg'); background-size: cover; background-position: center; }
+.pi-5  { background-image: url('photos/underglow.jpeg'); background-size: cover; background-position: center; }
+.pi-6  { background-image: url('photos/doorremoval.jpeg'); background-size: cover; background-position: center; }
 .pi-7  { background-color: #180e00; background-image: radial-gradient(ellipse at 55% 45%, rgba(210,110,0,0.45) 0%, transparent 65%); }
 .pi-8  { background-color: #080e18; background-image: radial-gradient(ellipse at 45% 55%, rgba(0,90,200,0.5) 0%, transparent 65%); }
 .pi-9  { background-color: #141414; background-image: radial-gradient(ellipse at 50% 50%, rgba(160,160,160,0.18) 0%, transparent 65%); }
