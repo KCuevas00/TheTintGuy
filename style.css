@@ -561,6 +561,10 @@ body {
 
 .gallery-item.square .gallery-img { aspect-ratio: 1/1; }
 
+/* Force videos to be uniform squares */
+.gallery-item[data-media-type="video"] { grid-column: span 1; grid-row: span 1; }
+.gallery-item[data-media-type="video"] .gallery-img { aspect-ratio: 1/1; }
+
 .gallery-img {
   width: 100%; aspect-ratio: 1/1;
   display: flex; align-items: center; justify-content: center;

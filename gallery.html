@@ -106,11 +106,10 @@
 
   <script>
     const galleryItems = [
-      // Featured images at top
-      { id: 1, image: 'photos/tint.jpg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo', featured: true },
-      { id: 2, image: 'photos/trucktint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo', featured: true },
-      { id: 3, image: 'photos/suvtintsnow.jpg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo', featured: true },
-      // Remaining photos (no proof images, no logo)
+      // Photos (no proof images, no logo)
+      { id: 1, image: 'photos/tint.jpg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
+      { id: 2, image: 'photos/trucktint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
+      { id: 3, image: 'photos/suvtintsnow.jpg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 4, image: 'photos/tint (4).jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 5, image: 'photos/tint (5).jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 6, image: 'photos/civicsporttint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
@@ -202,17 +201,13 @@
         return categoryMatch && mediaMatch;
       });
 
-      // Separate featured items and shuffle the rest
-      const featured = filtered.filter(item => item.featured);
-      const rest = filtered.filter(item => !item.featured);
-      
-      // Shuffle the rest to mix photos and videos
-      for (let i = rest.length - 1; i > 0; i--) {
+      // Shuffle to mix photos and videos
+      for (let i = filtered.length - 1; i > 0; i--) {
         const j = Math.floor(Math.random() * (i + 1));
-        [rest[i], rest[j]] = [rest[j], rest[i]];
+        [filtered[i], filtered[j]] = [filtered[j], filtered[i]];
       }
 
-      return [...featured, ...rest];
+      return filtered;
     }
 
     function createLightbox() {
@@ -312,10 +307,9 @@
       grid.innerHTML = filtered.map((item, idx) => {
         const isVideo = item.mediaType === 'video';
         const mediaIcon = isVideo ? '<i class="fas fa-play-circle"></i>' : '';
-        const isFeatured = item.featured ? 'featured' : '';
         
         return `
-        <div class="gallery-item ${isFeatured}" data-idx="${idx}" data-media-type="${item.mediaType}">
+        <div class="gallery-item" data-idx="${idx}" data-media-type="${item.mediaType}">
           <div class="gallery-img" data-src="${item.image}">
             <div class="gallery-placeholder"></div>
             ${mediaIcon}
