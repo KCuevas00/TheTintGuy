@@ -328,20 +328,21 @@ body {
   .hero-logo-mark { width: 80px; height: 80px; }
 }
 
-.hero-title { font-family: var(--font-display); line-height: 0.88; margin-bottom: 22px; overflow-wrap: normal; }
+.hero-title { font-family: 'Bebas Neue', sans-serif; line-height: 1; margin-bottom: 22px; overflow-wrap: normal; }
 .hero-title .line2 {
-  display: block; font-size: clamp(3.5rem, 10vw, 9.5rem);
-  color: var(--white); letter-spacing: 2px;
+  display: block; font-size: clamp(2.5rem, 6vw, 4rem);
+  color: var(--white); letter-spacing: 12px;
   opacity: 0; transform: translateY(30px);
   animation: fadeUp 0.8s forwards 0.2s;
   transition: opacity 0.3s ease;
 }
 .hero-title .line3 {
-  display: block; font-size: clamp(2.2rem, 5.5vw, 5rem);
-  color: rgba(255,255,255,0.12); letter-spacing: 10px;
-  -webkit-text-stroke: 1px rgba(255,255,255,0.25);
+  display: block; font-size: clamp(3.5rem, 10vw, 9.5rem);
+  color: var(--accent); letter-spacing: 8px;
+  -webkit-text-stroke: 2px var(--accent);
+  color: transparent;
   opacity: 0; transform: translateY(30px);
-  animation: fadeUp 0.8s forwards 0.4s;
+  animation: fadeUp 0.8s forwards 0.3s;
   transition: opacity 0.3s ease;
 }
 .hero-sub {
