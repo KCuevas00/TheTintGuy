@@ -6,12 +6,6 @@ logo on pages needs to match hero logo
 
 have the navbar logo text match the logo text itself. 
 
-replace review placeholders with real reviews.
-
-remove weird transparent text in homepage gallery previews
-
-add videos 
-
 remove redundant text "what i do" from services page
 
 rename shop to services
