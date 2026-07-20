@@ -657,16 +657,17 @@ body {
   width: 100%; aspect-ratio: 1/1;
   display: flex; align-items: center; justify-content: center;
   overflow: hidden; position: relative;
+  background: var(--black);
 }
 .product-img img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 /* Product images */
-.pi-1  { background-image: url('photos/tint.jpeg'); background-size: cover; background-position: center; }
-.pi-2  { background-image: url('photos/soundsystem.jpg'); background-size: cover; background-position: center; }
-.pi-3  { background-image: url('photos/interiorlighting.jpeg'); background-size: cover; background-position: center; }
-.pi-4  { background-image: url('photos/fordtrucktint.jpeg'); background-size: cover; background-position: center; }
-.pi-5  { background-image: url('photos/underglow.jpeg'); background-size: cover; background-position: center; }
-.pi-6  { background-image: url('photos/doorremoval.jpeg'); background-size: cover; background-position: center; }
+.pi-1  { background-image: url('photos/tint.jpeg'); background-size: contain; background-position: center; background-repeat: no-repeat; }
+.pi-2  { background-image: url('photos/soundsystem.jpg'); background-size: contain; background-position: center; background-repeat: no-repeat; }
+.pi-3  { background-image: url('photos/interiorlighting.jpeg'); background-size: contain; background-position: center; background-repeat: no-repeat; }
+.pi-4  { background-image: url('photos/fordtrucktint.jpeg'); background-size: contain; background-position: center; background-repeat: no-repeat; }
+.pi-5  { background-image: url('photos/underglow.jpeg'); background-size: contain; background-position: center; background-repeat: no-repeat; }
+.pi-6  { background-image: url('photos/doorremoval.jpeg'); background-size: contain; background-position: center; background-repeat: no-repeat; }
 .pi-7  { background-color: #180e00; background-image: radial-gradient(ellipse at 55% 45%, rgba(210,110,0,0.45) 0%, transparent 65%); }
 .pi-8  { background-color: #080e18; background-image: radial-gradient(ellipse at 45% 55%, rgba(0,90,200,0.5) 0%, transparent 65%); }
 .pi-9  { background-color: #141414; background-image: radial-gradient(ellipse at 50% 50%, rgba(160,160,160,0.18) 0%, transparent 65%); }
