@@ -256,7 +256,7 @@ body {
 
 .slide-1 {
   background-color: #0a1220;
-  background-image: url('photos/herotint.jpeg'), radial-gradient(ellipse at 25% 55%, rgba(60,100,180,0.35) 0%, transparent 60%),
+  background-image: url('photos/herotint.PNG'), radial-gradient(ellipse at 25% 55%, rgba(60,100,180,0.35) 0%, transparent 60%),
     radial-gradient(ellipse at 80% 20%, rgba(204,34,0,0.2) 0%, transparent 50%);
   background-size: cover, auto, auto;
   background-position: center, center, center;
@@ -277,7 +277,7 @@ body {
 }
 .slide-4 {
   background-color: #0c0c0c;
-  background-image: url('photos/gmcsuvtint.jpeg'), radial-gradient(ellipse at 35% 45%, rgba(204,34,0,0.25) 0%, transparent 55%),
+  background-image: url('photos/lightbluecartint.PNG'), radial-gradient(ellipse at 35% 45%, rgba(204,34,0,0.25) 0%, transparent 55%),
     radial-gradient(ellipse at 75% 65%, rgba(60,60,120,0.3) 0%, transparent 55%);
   background-size: cover, auto, auto;
   background-position: center, center, center;
@@ -619,9 +619,9 @@ body {
 /* Homepage gallery tiles are all uniform squares -- see .gallery-item base rule above */
 
 /* Gallery images */
-.gi-1 { background-image: url('photos/civictint.jpeg'); background-size: cover; background-position: center; }
+.gi-1 { background-image: url('photos/civictint.PNG'); background-size: cover; background-position: center; }
 .gi-2 { background-image: url('photos/soundsystem.jpg'); background-size: cover; background-position: center; }
-.gi-3 { background-image: url('photos/suvtint.jpeg'); background-size: cover; background-position: center; }
+.gi-3 { background-image: url('photos/suvtintsnow.PNG'); background-size: cover; background-position: center; }
 .gi-4 { background-image: url('photos/gmcsuvtint.jpeg'); background-size: cover; background-position: center; }
 .gi-5 { background-image: url('photos/doorremovalafter.jpeg'); background-size: cover; background-position: center; }
 .gi-6 { background-image: url('photos/tint (3).jpeg'); background-size: cover; background-position: center; }
@@ -1301,7 +1301,7 @@ body {
   .nav-links.open { max-height: 320px; }
   .nav-links li a { display: block; padding: 14px 36px; border-bottom: 1px solid #1a1a1a; }
   .hamburger { display: flex; }
-  .nav-book-btn { padding: 8px 16px; font-size: 0.7rem; letter-spacing: 2px; }
+  .nav-book-btn { padding: 8px 10px; font-size: 0.7rem; letter-spacing: 2px; }
   .hero-content { padding: 0 24px; }
   .slide-dots { left: 24px; bottom: 24px; }
   .slide-counter { right: 24px; bottom: 20px; }
