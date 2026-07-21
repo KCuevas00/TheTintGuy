@@ -254,6 +254,20 @@ body {
 }
 .hero-slide.active { opacity: 1; }
 
+.hero-video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.hero-slide.active .hero-video {
+  opacity: 1;
+}
+
 .slide-1 {
   background-color: #0a1220;
   background-image: url('photos/herotint.PNG'), radial-gradient(ellipse at 25% 55%, rgba(60,100,180,0.35) 0%, transparent 60%),

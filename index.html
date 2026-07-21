@@ -64,7 +64,11 @@
     <div class="hero-slides">
       <div class="hero-slide slide-1 active"></div>
       <div class="hero-slide slide-2"></div>
-      <div class="hero-slide slide-3"></div>
+      <div class="hero-slide slide-3">
+        <video class="hero-video" autoplay muted loop playsinline>
+          <source src="videos/starlight.mp4" type="video/mp4">
+        </video>
+      </div>
       <div class="hero-slide slide-4"></div>
     </div>
     <div class="hero-overlay"></div>
@@ -143,11 +147,11 @@
       <div class="gallery-item"><div class="gallery-img gi-1"></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
       <div class="gallery-item video-tile"><div class="gallery-img" style="background-image: url('videos/tint.mp4'); background-size: cover; background-position: center;"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
       <div class="gallery-item"><div class="gallery-img gi-3"></div><div class="gallery-overlay"><span class="gallery-tag">STARLIGHT HEADLINER</span></div></div>
-      <div class="gallery-item"><div class="gallery-img gi-4"></div><div class="gallery-overlay"><span class="gallery-tag">AMBIENT LIGHTING</span></div></div>
-      <div class="gallery-item"><div class="gallery-img gi-5"></div><div class="gallery-overlay"><span class="gallery-tag">ROCK LIGHTS</span></div></div>
-      <div class="gallery-item"><div class="gallery-img gi-6"></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
-      <div class="gallery-item video-tile"><div class="gallery-img" style="background-image: url('videos/starlight.mp4'); background-size: cover; background-position: center;"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
-      <div class="gallery-item"><div class="gallery-img gi-8"></div><div class="gallery-overlay"><span class="gallery-tag">MECHANIC WORK</span></div></div>
+      <div class="gallery-item"><div class="gallery-img gi-4"></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
+      <div class="gallery-item"><div class="gallery-img gi-5"></div><div class="gallery-overlay"><span class="gallery-tag">VEHICLE WRAP</span></div></div>
+      <div class="gallery-item video-tile"><div class="gallery-img" style="background-image: url('videos/inteirorlighting.mp4'); background-size: cover; background-position: center;"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">INTERIOR LIGHTING</span></div></div>
+      <div class="gallery-item video-tile"><div class="gallery-img" style="background-image: url('videos/starlight.mp4'); background-size: cover; background-position: center;"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">STARLIGHT HEADLINER</span></div></div>
+      <div class="gallery-item"><div class="gallery-img gi-8"></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
     </div>
     <div class="gallery-cta-group">
       <a href="gallery.html" class="btn-secondary"><i class="fas fa-images" style="margin-right:8px;"></i>SEE FULL GALLERY</a>
@@ -304,14 +308,14 @@
 
     /* ---- LIGHTBOX (expandable gallery images, arrow nav + swipe) ---- */
     const homeGalleryImages = [
-      { src: 'photos/herotint.jpeg', tag: 'WINDOW TINT' },
-      { src: 'photos/soundsystem.jpg', tag: 'SOUND SYSTEM' },
-      { src: 'photos/interiorlighting.jpeg', tag: 'STARLIGHT HEADLINER' },
-      { src: 'photos/underglow.jpeg', tag: 'AMBIENT LIGHTING' },
-      { src: 'photos/gmcsuvtint.jpeg', tag: 'ROCK LIGHTS' },
-      { src: 'photos/graycartint.jpeg', tag: 'VEHICLE WRAP' },
-      { src: 'photos/fordtrucktint.jpeg', tag: 'FULL BUILD' },
-      { src: 'photos/whitecartint.jpeg', tag: 'MECHANIC WORK' }
+      { src: 'photos/civictint.PNG', tag: 'WINDOW TINT' },
+      { src: 'videos/tint.mp4', tag: 'WINDOW TINT', isVideo: true },
+      { src: 'photos/suvtintsnow.PNG', tag: 'STARLIGHT HEADLINER' },
+      { src: 'photos/gmcsuvtint.jpeg', tag: 'WINDOW TINT' },
+      { src: 'photos/doorremovalafter.jpeg', tag: 'VEHICLE WRAP' },
+      { src: 'videos/inteirorlighting.mp4', tag: 'INTERIOR LIGHTING', isVideo: true },
+      { src: 'videos/starlight.mp4', tag: 'STARLIGHT HEADLINER', isVideo: true },
+      { src: 'photos/trucktint.jpeg', tag: 'WINDOW TINT' }
     ];
 
     function createLightbox(images) {
