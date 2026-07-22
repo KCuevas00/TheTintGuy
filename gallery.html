@@ -340,30 +340,47 @@
               if (mediaType === 'video') {
                 // For videos, create a video element to capture thumbnail
                 const video = document.createElement('video');
-                video.src = src;
                 video.muted = true;
                 video.playsInline = true;
-                video.currentTime = 0.5; // Seek to 0.5 seconds for thumbnail
-                
-                video.onloadeddata = () => {
+                video.preload = 'metadata';
+
+                video.addEventListener('loadedmetadata', () => {
+                  // Seek relative to this video's own duration -- a flat 0.5s
+                  // either lands before the browser can honor a seek, or
+                  // past the end of short clips (both produce a black frame).
+                  const dur = video.duration;
+                  const seekTime = (isFinite(dur) && dur > 0)
+                    ? Math.min(dur * 0.15, dur - 0.05, 1.5)
+                    : 0.1;
+                  video.currentTime = Math.max(seekTime, 0.05);
+                });
+
+                video.addEventListener('seeked', () => {
                   // Create canvas to capture frame
                   const canvas = document.createElement('canvas');
                   canvas.width = video.videoWidth;
                   canvas.height = video.videoHeight;
                   const ctx = canvas.getContext('2d');
                   ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
-                  
-                  const thumbnailUrl = canvas.toDataURL('image/jpeg', 0.7);
-                  imgContainer.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${thumbnailUrl}')`;
-                  imgContainer.style.backgroundSize = 'cover';
-                  imgContainer.style.backgroundPosition = 'center';
+
+                  try {
+                    const thumbnailUrl = canvas.toDataURL('image/jpeg', 0.7);
+                    imgContainer.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('${thumbnailUrl}')`;
+                    imgContainer.style.backgroundSize = 'cover';
+                    imgContainer.style.backgroundPosition = 'center';
+                  } catch (err) {
+                    // Tainted canvas (e.g. cross-origin video host) -- fall back to poster icon
+                    imgContainer.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23222" width="100" height="100"/><text x="50" y="55" font-size="40" fill="%23666" text-anchor="middle">▶</text></svg>')`;
+                    imgContainer.style.backgroundSize = 'cover';
+                    imgContainer.style.backgroundPosition = 'center';
+                  }
                   if (placeholder) placeholder.style.display = 'none';
-                  
+
                   // Clean up
                   video.remove();
                   canvas.remove();
-                };
-                
+                });
+
                 video.onerror = () => {
                   // Fallback if video fails to load
                   imgContainer.style.backgroundImage = `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="%23222" width="100" height="100"/><text x="50" y="55" font-size="40" fill="%23666" text-anchor="middle">▶</text></svg>')`;
@@ -371,7 +388,8 @@
                   imgContainer.style.backgroundPosition = 'center';
                   if (placeholder) placeholder.style.display = 'none';
                 };
-                
+
+                video.src = src;
                 video.load();
               } else {
                 // For images: always render as a plain uniform square tile,
