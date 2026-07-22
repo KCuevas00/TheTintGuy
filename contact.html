@@ -195,11 +195,12 @@
       <p>The Tint Guy Corporation</p>
       <div class="social-links" style="justify-content:center; margin: 14px 0;">
         <a href="https://www.tiktok.com/@thetintguy27?_r=1&_t=ZT-983FbPUpHvJ" target="_blank" class="social-btn tiktok" title="TikTok"><i class="fab fa-tiktok"></i></a>
-        <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0aGI4ODA4Mg==" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/thetintguy_corp_29?igsh=MXBnZnM0GI4ODA4Mg==" target="_blank" class="social-btn instagram" title="Instagram"><i class="fab fa-instagram"></i></a>
         <a href="https://t.me/thetintguy_27" target="_blank" class="social-btn telegram" title="Telegram"><i class="fab fa-telegram"></i></a>
         <a href="https://www.snapchat.com/add/the.tintguy?share_id=hZwJ2rEOslA&locale=en-US" target="_blank" class="social-btn snapchat" title="Snapchat"><i class="fab fa-snapchat"></i></a>
         <a href="https://wa.me/18159058424" target="_blank" class="social-btn whatsapp" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
       </div>
+      <p style="margin-top:6px;"><a href="mailto:TheTintGuy27@gmail.com" style="color:var(--mid); text-decoration:none;">TheTintGuy27@gmail.com</a></p>
       <p style="margin-top:6px;"><a href="tel:8159058424" style="color:var(--mid); text-decoration:none;">815-905-8424</a></p>
       <p class="footer-copy">© 2026 The Tint Guy Corporation. All rights reserved.</p>
     </div>
@@ -294,18 +295,39 @@
       const form = e.target;
       const btn = document.getElementById('submitBtn');
 
-      // Button loading state
+      // Get form values
+      const name = form.querySelector('input[placeholder="YOUR NAME"]').value;
+      const vehicle = form.querySelector('input[placeholder="VEHICLE (year / make / model)"]').value;
+      const email = form.querySelector('input[placeholder="YOUR EMAIL"]').value;
+      const phone = form.querySelector('input[placeholder="YOUR PHONE"]').value;
+      const service = form.querySelector('select').value;
+      const message = form.querySelector('textarea').value;
+
+      // Build email body
+      const subject = encodeURIComponent(`New Booking Request - ${service}`);
+      const body = encodeURIComponent(
+        `Name: ${name}\n` +
+        `Vehicle: ${vehicle}\n` +
+        `Email: ${email}\n` +
+        `Phone: ${phone}\n` +
+        `Service: ${service}\n\n` +
+        `Message:\n${message}`
+      );
+
+      // Open mailto link
+      window.location.href = `mailto:TheTintGuy27@gmail.com?subject=${subject}&body=${body}`;
+
+      // Show success message
       btn.textContent = 'SENDING...';
       btn.style.opacity = '0.7';
       btn.disabled = true;
 
-      // Simulate send (replace with real backend/Formspree/EmailJS call)
       setTimeout(() => {
         form.innerHTML = `
           <div class="form-success">
             <i class="fas fa-check-circle"></i>
-            <h3>REQUEST SENT!</h3>
-            <p>I'll reach out to confirm a time. For a faster response, DM me on Snapchat or Instagram.</p>
+            <h3>EMAIL OPENED!</h3>
+            <p>Your email client should have opened. Send the email to complete your request.</p>
             <a href="shop.html" class="btn-primary" style="margin-top:8px;">VIEW SERVICES</a>
           </div>
         `;
