@@ -590,19 +590,28 @@ body {
   aspect-ratio: 1/1;
 }
 
-/* Featured items at top */
+/* Featured items at top (homepage teaser grid only) */
 .gallery-item.featured {
   grid-column: span 2; grid-row: span 2;
   aspect-ratio: unset; min-height: 320px;
 }
 
-/* Orientation-based sizing */
-.gallery-item.landscape { grid-column: span 2; aspect-ratio: 2/1; }
-.gallery-item.portrait  { grid-row: span 2; aspect-ratio: 1/2; }
-.gallery-item.square    { aspect-ratio: 1/1; }
-
-/* Force videos to be uniform squares */
-.gallery-item[data-media-type="video"] { grid-column: span 1; grid-row: span 1; aspect-ratio: 1/1; }
+/* Full gallery page (#galleryGrid): every tile, photo or video, stays a
+   plain uniform square — no landscape/portrait resizing, ever. */
+#galleryGrid.gallery-item,
+#galleryGrid .gallery-item {
+  grid-column: span 1;
+  grid-row: span 1;
+  aspect-ratio: 1/1;
+}
+/* Higher-specificity guard: the homepage's nth-child double-span rules
+   (in the responsive breakpoints below) target the shared .gallery-item
+   class. This keeps the full gallery page immune to them at any width. */
+#galleryGrid .gallery-item:nth-child(1),
+#galleryGrid .gallery-item:nth-child(4),
+#galleryGrid .gallery-item:nth-child(7) {
+  grid-column: span 1;
+}
 
 .gallery-img {
   position: absolute; inset: 0;

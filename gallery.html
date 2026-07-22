@@ -111,11 +111,11 @@
       // Photos (no proof images, no logo)
       { id: 1, image: 'photos/tint.jpg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 2, image: 'photos/trucktint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
-      { id: 3, image: 'photos/suvtintsnow.jpg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
+      { id: 3, image: 'photos/suvtintsnow.PNG', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 4, image: 'photos/tint (4).jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 5, image: 'photos/tint (5).jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
-      { id: 6, image: 'photos/civicsporttint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
-      { id: 7, image: 'photos/civictint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
+      { id: 6, image: 'photos/civicsporttint.PNG', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
+      { id: 7, image: 'photos/civictint.PNG', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 8, image: 'photos/corollatint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 9, image: 'photos/malibutint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 10, image: 'photos/doorremoval.jpeg', category: 'wrap', tag: 'VEHICLE WRAP', mediaType: 'photo' },
@@ -123,10 +123,10 @@
       { id: 12, image: 'photos/fordtrucktint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 13, image: 'photos/gmcsuvtint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 14, image: 'photos/graycartint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
-      { id: 15, image: 'photos/herotint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
+      { id: 15, image: 'photos/herotint.PNG', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 16, image: 'photos/interiorlighting.jpeg', category: 'lighting', tag: 'INTERIOR LIGHTING', mediaType: 'photo' },
       { id: 17, image: 'photos/kiatint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
-      { id: 18, image: 'photos/lightbluecartint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
+      { id: 18, image: 'photos/lightbluecartint.PNG', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 19, image: 'photos/redcartintwindshield.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 20, image: 'photos/snaplandscapetint.jpeg', category: 'tint', tag: 'WINDOW TINT', mediaType: 'photo' },
       { id: 21, image: 'photos/soundsystem.jpg', category: 'audio', tag: 'SOUND SYSTEM', mediaType: 'photo' },
@@ -374,23 +374,13 @@
                 
                 video.load();
               } else {
-                // For images, load the actual image and detect orientation
+                // For images: always render as a plain uniform square tile,
+                // regardless of the source image's native orientation
                 const img = new Image();
                 img.onload = () => {
                   imgContainer.style.backgroundImage = `url('${src}')`;
                   imgContainer.style.backgroundSize = 'cover';
                   imgContainer.style.backgroundPosition = 'center';
-                  
-                  // Detect orientation and apply class
-                  const aspectRatio = img.width / img.height;
-                  if (aspectRatio > 1.2) {
-                    item.classList.add('landscape');
-                  } else if (aspectRatio < 0.8) {
-                    item.classList.add('portrait');
-                  } else {
-                    item.classList.add('square');
-                  }
-                  
                   if (placeholder) placeholder.style.display = 'none';
                 };
                 img.src = src;
