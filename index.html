@@ -145,12 +145,12 @@
     </div>
     <div class="gallery-grid">
       <div class="gallery-item"><div class="gallery-img gi-1"></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
-      <div class="gallery-item video-tile"><div class="gallery-img" style="background-image: url('videos/tint.mp4'); background-size: cover; background-position: center;"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
+      <div class="gallery-item video-tile"><div class="gallery-img"><video src="videos/tint.mp4" muted loop playsinline></video><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
       <div class="gallery-item"><div class="gallery-img gi-3"></div><div class="gallery-overlay"><span class="gallery-tag">STARLIGHT HEADLINER</span></div></div>
       <div class="gallery-item"><div class="gallery-img gi-4"></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
       <div class="gallery-item"><div class="gallery-img gi-5"></div><div class="gallery-overlay"><span class="gallery-tag">VEHICLE WRAP</span></div></div>
-      <div class="gallery-item video-tile"><div class="gallery-img" style="background-image: url('videos/inteirorlighting.mp4'); background-size: cover; background-position: center;"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">INTERIOR LIGHTING</span></div></div>
-      <div class="gallery-item video-tile"><div class="gallery-img" style="background-image: url('videos/starlight.mp4'); background-size: cover; background-position: center;"><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">STARLIGHT HEADLINER</span></div></div>
+      <div class="gallery-item video-tile"><div class="gallery-img"><video src="videos/inteirorlighting.mp4" muted loop playsinline></video><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">INTERIOR LIGHTING</span></div></div>
+      <div class="gallery-item video-tile"><div class="gallery-img"><video src="videos/starlight.mp4" muted loop playsinline></video><i class="fas fa-play"></i></div><div class="gallery-overlay"><span class="gallery-tag">STARLIGHT HEADLINER</span></div></div>
       <div class="gallery-item"><div class="gallery-img gi-8"></div><div class="gallery-overlay"><span class="gallery-tag">WINDOW TINT</span></div></div>
     </div>
     <div class="gallery-cta-group">
@@ -183,7 +183,7 @@
         <div class="proof-header"><i class="fab fa-snapchat"></i><span>Snapchat — after starlight headliner install</span></div>
         <img src="photos/proof-jack-gali.png" class="proof-screenshot" alt="Customer text conversation praising the starlight headliner install, later tagging @the.tintguy in his own Snapchat story" />
         <div class="proof-header"><i class="fab fa-snapchat"></i><span>Snapchat — after tint job</span></div>
-        <img src="photos/snapreview.heic" class="proof-screenshot" alt="Additional snapchat review" />
+        <img src="photos/snapreview.png" class="proof-screenshot" alt="Additional snapchat review" />
       </div>
       <div class="screenshot-proof-card">
         <div class="proof-header"><i class="fab fa-facebook"></i><span>DeKalb, IL Facebook group</span></div>
@@ -326,7 +326,8 @@
         <button class="lightbox-close" aria-label="Close">&times;</button>
         <button class="lightbox-arrow lightbox-prev" aria-label="Previous">&#10094;</button>
         <div class="lightbox-img-wrap">
-          <img src="" alt="" />
+          <img src="" alt="" style="display:none;" />
+          <video src="" controls style="display:none;"></video>
           <span class="lightbox-tag"></span>
         </div>
         <button class="lightbox-arrow lightbox-next" aria-label="Next">&#10095;</button>
@@ -334,13 +335,27 @@
       `;
       document.body.appendChild(overlay);
       const imgEl = overlay.querySelector('img');
+      const videoEl = overlay.querySelector('video');
       const tagEl = overlay.querySelector('.lightbox-tag');
       const counterEl = overlay.querySelector('.lightbox-counter');
 
       function show(i) {
         current = (i + images.length) % images.length;
-        imgEl.src = images[current].src;
-        imgEl.alt = images[current].tag || '';
+        const isVideo = images[current].isVideo;
+        
+        if (isVideo) {
+          imgEl.style.display = 'none';
+          videoEl.style.display = 'block';
+          videoEl.src = images[current].src;
+          videoEl.play();
+        } else {
+          videoEl.style.display = 'none';
+          videoEl.pause();
+          imgEl.style.display = 'block';
+          imgEl.src = images[current].src;
+          imgEl.alt = images[current].tag || '';
+        }
+        
         tagEl.textContent = images[current].tag || '';
         counterEl.textContent = `${current + 1} / ${images.length}`;
       }
@@ -350,6 +365,7 @@
         document.body.style.overflow = 'hidden';
       }
       function close() {
+        videoEl.pause();
         overlay.classList.remove('open');
         document.body.style.overflow = '';
       }
