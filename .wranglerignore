@@ -1,0 +1,7 @@
+.git
+.git/**
+.DS_Store
+.gitignore
+README.md
+scratch
+scratch/**
