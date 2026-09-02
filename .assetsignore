@@ -1,0 +1,11 @@
+.git
+.git/**
+.DS_Store
+.gitignore
+.wranglerignore
+.assetsignore
+.ignore
+wrangler.json
+README.md
+scratch
+scratch/**
